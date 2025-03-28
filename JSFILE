@@ -1,4 +1,17 @@
 function headerWidth() {
-    var t = $("div.wrapper").width();
-    $("header").css("margin-left", -t / 2)
+    var wrapper = document.querySelector("div.wrapper");
+    var header = document.querySelector("header");
+
+    if (wrapper && header) {
+        var t = wrapper.offsetWidth;
+        header.style.marginLeft = (-t / 2) + "px";
+    }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    headerWidth();
+});
+
+window.addEventListener("resize", function () {
+    headerWidth();
+});

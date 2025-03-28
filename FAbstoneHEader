@@ -249,5 +249,7 @@
             }
         });
     </script>
+    <script src="https://www.sociinc.com/wp-includes/js/jquery/jquery.min.js"></script>
+    <script src="https://www.sociinc.com/wp-content/themes/soci/assets/js/min/app.min.js"></script>
 </body>
 </html>

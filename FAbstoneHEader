@@ -16,16 +16,14 @@
         .clearfix {
             clear: both;
         }
-      
     </style>
- 
-
 </head>
 <body>
     <!-- Wrapper -->
     <div class="wrapper" style="width: 100%;">
         <!-- Invisible Nav Closer -->
         <div class="nav-closer"></div>
+        
         <!-- Navigation Menu -->
         <nav class="main-nav">
             <div class="interior-nav">
@@ -58,8 +56,7 @@
                 <img src="https://www.sociinc.com/wp-content/themes/soci/assets/img/white-logo.png" alt="SOCI">
             </div>
         </nav>
-        <!-- End Navigation Menu -->
-        
+
         <!-- Soci Search -->
         <div class="search">
             <form role="search" method="get" id="custSearchform" class="searchform" action="https://www.sociinc.com">
@@ -74,6 +71,7 @@
                 </div>
             </form>
         </div>
+
         <!-- Header -->
         <header>
             <ul class="logos">
@@ -107,148 +105,149 @@
                 </li>
             </ul>
         </header>
-        <!-- End Header -->
+
         <!-- Main content would go here -->
         <div class="main-content">
             <!-- Your page content -->
         </div>
+
         <!-- Footer -->
-        
         <!-- End Footer -->
     </div>
-<!-- <script src="https://www.sociinc.com/wp-includes/js/jquery/jquery.min.js"></script>  -->
- <!-- <script src="https://www.sociinc.com/wp-content/themes/soci/assets/js/min/app.min.js"></script> -->
- <script >
-function headerWidth() {
-    var wrapper = document.querySelector("div.wrapper");
-    var header = document.querySelector("header");
 
-    if (wrapper && header) {
-        var t = wrapper.offsetWidth;
-        header.style.marginLeft = (-t / 2) + "px";
-    }
-}
+    <script>
+        function headerWidth() {
+            var wrapper = document.querySelector("div.wrapper");
+            var header = document.querySelector("header");
 
-document.addEventListener("DOMContentLoaded", function () {
-    headerWidth();
-});
-
-window.addEventListener("resize", function () {
-    headerWidth();
-});
-
-document.addEventListener("click", function (event) {
-    if (event.target.matches("a.openMenu")) {
-        event.preventDefault();
-        var e = event.target;
-        e.classList.add("activated");
-        var n = e.getAttribute("data-close");
-
-        var img = e.querySelector("img");
-        if (img) img.setAttribute("src", n);
-
-        var wrapper = document.querySelector(".wrapper");
-        if (wrapper) {
-            var i = window.innerWidth - (wrapper.offsetLeft + wrapper.offsetWidth);
-            document.querySelector(".nav-closer").style.display = "block";
-            var mainNav = document.querySelector(".main-nav");
-            if (mainNav) {
-                mainNav.style.right = i + "px";
-                mainNav.style.top = "72px";
-                mainNav.classList.add("opened");
+            if (wrapper && header) {
+                var t = wrapper.offsetWidth;
+                header.style.marginLeft = (-t / 2) + "px";
             }
         }
-    }
 
-    if (event.target.matches("a.openMenu.activated, .nav-closer")) {
-        event.preventDefault();
-        var e = document.querySelector("a.openMenu.activated");
-        if (e) {
-            e.classList.remove("activated");
-            var n = e.getAttribute("data-open");
+        document.addEventListener("DOMContentLoaded", function () {
+            headerWidth();
+        });
 
-            var img = e.querySelector("img");
-            if (img) img.setAttribute("src", n);
-        }
-        
-        document.querySelector(".nav-closer").style.display = "none";
-        var mainNav = document.querySelector(".main-nav");
-        if (mainNav) {
-            mainNav.style.top = "-100%";
-        }
-    }
+        window.addEventListener("resize", function () {
+            headerWidth();
+        });
 
-    if (event.target.matches("a.openSearch")) {
-        event.preventDefault();
-        var wrapper = document.querySelector(".wrapper");
-        if (wrapper) {
-            var n = window.innerWidth - (wrapper.offsetLeft + wrapper.offsetWidth);
-            var searchDiv = document.querySelector("div.search");
-            if (searchDiv) {
-                searchDiv.style.right = n + "px";
-                searchDiv.style.top = "72px";
+        document.addEventListener("click", function (event) {
+            var menuButton = event.target.closest("a.openMenu");
+
+            if (menuButton) {
+                event.preventDefault();
+                menuButton.classList.add("activated");
+
+                var closeImageSrc = menuButton.getAttribute("data-close");
+                var menuImage = menuButton.querySelector("img");
+                if (menuImage) {
+                    menuImage.setAttribute("src", closeImageSrc);
+                }
+
+                var wrapperElement = document.querySelector(".wrapper");
+                if (wrapperElement) {
+                    var remainingWidth = window.innerWidth - (wrapperElement.offsetLeft + wrapperElement.offsetWidth);
+                    document.querySelector(".nav-closer").style.display = "block";
+                    var mainNavigation = document.querySelector(".main-nav");
+                    if (mainNavigation) {
+                        mainNavigation.style.right = remainingWidth + "px";
+                        mainNavigation.style.top = "72px";
+                        mainNavigation.classList.add("opened");
+                    }
+                }
             }
-            var searchInput = document.getElementById("search");
-            if (searchInput) {
-                searchInput.focus();
+
+            if (event.target.matches("a.openMenu.activated, .nav-closer")) {
+                event.preventDefault();
+                var activatedMenuButton = document.querySelector("a.openMenu.activated");
+                if (activatedMenuButton) {
+                    activatedMenuButton.classList.remove("activated");
+
+                    var openImageSrc = activatedMenuButton.getAttribute("data-open");
+                    var activatedMenuImage = activatedMenuButton.querySelector("img");
+                    if (activatedMenuImage) {
+                        activatedMenuImage.setAttribute("src", openImageSrc);
+                    }
+                }
+
+                document.querySelector(".nav-closer").style.display = "none";
+                var mainNavigation = document.querySelector(".main-nav");
+                if (mainNavigation) {
+                    mainNavigation.style.top = "-100%";
+                }
             }
-        }
-    }
 
-    if (event.target.matches(".closeSearch")) {
-        event.preventDefault();
-        var searchInput = document.getElementById("search");
-        if (searchInput) {
-            searchInput.value = "";
-        }
-        var searchDiv = document.querySelector("div.search");
-        if (searchDiv) {
-            searchDiv.style.top = "-100px";
-        }
-    }
-});
+            if (event.target.matches("a.openSearch")) {
+                event.preventDefault();
+                var wrapperElement = document.querySelector(".wrapper");
+                if (wrapperElement) {
+                    var remainingWidth = window.innerWidth - (wrapperElement.offsetLeft + wrapperElement.offsetWidth);
+                    var searchDiv = document.querySelector("div.search");
+                    if (searchDiv) {
+                        searchDiv.style.right = remainingWidth + "px";
+                        searchDiv.style.top = "72px";
+                    }
+                    var searchInput = document.getElementById("search");
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                }
+            }
 
-window.addEventListener("load", function () {
-    var wrapper = document.querySelector(".wrapper");
-    if (wrapper) {
-        var t = window.innerWidth - (wrapper.offsetLeft + wrapper.offsetWidth);
-        var mainNav = document.querySelector(".main-nav.opened");
-        if (mainNav) {
-            mainNav.style.right = t + "px";
-        }
-    }
-});
+            if (event.target.matches(".closeSearch")) {
+                event.preventDefault();
+                var searchInput = document.getElementById("search");
+                if (searchInput) {
+                    searchInput.value = "";
+                }
+                var searchDiv = document.querySelector("div.search");
+                if (searchDiv) {
+                    searchDiv.style.top = "-100px";
+                }
+            }
+        });
 
-window.addEventListener("resize", function () {
-    var wrapper = document.querySelector(".wrapper");
-    if (wrapper) {
-        var t = window.innerWidth - (wrapper.offsetLeft + wrapper.offsetWidth);
-        var mainNav = document.querySelector(".main-nav.opened");
-        if (mainNav) {
-            mainNav.style.right = t + "px";
-        }
+        window.addEventListener("load", function () {
+            var wrapperElement = document.querySelector(".wrapper");
+            if (wrapperElement) {
+                var remainingWidth = window.innerWidth - (wrapperElement.offsetLeft + wrapperElement.offsetWidth);
+                var mainNav = document.querySelector(".main-nav.opened");
+                if (mainNav) {
+                    mainNav.style.right = remainingWidth + "px";
+                }
+            }
+        });
 
-        var searchDiv = document.querySelector("div.search");
-        if (searchDiv) {
-            searchDiv.style.right = t + "px";
-        }
-    }
-});
+        window.addEventListener("resize", function () {
+            var wrapperElement = document.querySelector(".wrapper");
+            if (wrapperElement) {
+                var remainingWidth = window.innerWidth - (wrapperElement.offsetLeft + wrapperElement.offsetWidth);
+                var mainNav = document.querySelector(".main-nav.opened");
+                if (mainNav) {
+                    mainNav.style.right = remainingWidth + "px";
+                }
 
-window.addEventListener("load", function () {
-    if (typeof sliderInteriors === "function") {
-        sliderInteriors();
-    }
-});
+                var searchDiv = document.querySelector("div.search");
+                if (searchDiv) {
+                    searchDiv.style.right = remainingWidth + "px";
+                }
+            }
+        });
 
-window.addEventListener("resize", function () {
-    if (typeof sliderInteriors === "function") {
-        sliderInteriors();
-    }
-});
+        window.addEventListener("load", function () {
+            if (typeof sliderInteriors === "function") {
+                sliderInteriors();
+            }
+        });
 
-        
-</script> 
-
+        window.addEventListener("resize", function () {
+            if (typeof sliderInteriors === "function") {
+                sliderInteriors();
+            }
+        });
+    </script>
 </body>
 </html>

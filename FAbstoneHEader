@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tile and Sinks | SOCI</title>
+    <link href="https://www.sociinc.com/wp-content/themes/soci/assets/css/app.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.sociinc.com/wp-content/themes/soci/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Invisible Nav Closer -->
+        <div class="nav-closer"></div>
+        <!-- Navigation Menu -->
+        <nav class="main-nav">
+            <div class="interior-nav">
+                <span class="nav-header"><a href="https://www.sociinc.com/categories">Products</a></span>
+                <div class="menu-category-menu-container">
+                    <ul id="menu-category-menu" class="menu mn botpad">
+                        <li><a href="http://www.sociinc.com/product-category/new-products/">New Products</a></li>
+                        <li><a href="http://sociinc.com/product-category/tile">Tile</a></li>
+                        <li><a href="http://sociinc.com/product-category/sinks">Sinks</a></li>
+                        <li><a href="http://sociinc.com/product-category/displays">Displays</a></li>
+                        <li><a href="https://issuu.com/soci-inc/docs/soci-sinks-catalog-2025">2025 Soci Catalog - Sinks Only</a></li>
+                        <li><a target="_blank" rel="noopener" href="https://issuu.com/soci-inc/docs/soci-catalog-2025?fr=xKAE9_zU1NQ">2025 Soci Catalog</a></li>
+                    </ul>
+                </div>
+                <span class="nav-header">Company</span>
+                <div class="menu-soci-menu-container">
+                    <ul id="menu-soci-menu" class="menu mn">
+                        <li><a href="https://www.sociinc.com/about-us/">About Us</a></li>
+                        <li><a href="https://www.sociinc.com/blog/">Blog</a></li>
+                        <li><a href="https://www.sociinc.com/frequently-asked-questions/">FAQ</a></li>
+                        <li><a href="https://www.sociinc.com/resource/">Resources</a></li>
+                        <li><a href="https://www.sociinc.com/returns/">Returns</a></li>
+                        <li><a href="https://www.sociinc.com/warranty/">Warranty</a></li>
+                        <li><a href="https://www.sociinc.com/wholesale/">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="nav-bottom">
+                <img src="https://www.sociinc.com/wp-content/themes/soci/assets/img/white-logo.png" alt="SOCI">
+            </div>
+        </nav>
+        <!-- End Navigation Menu -->
+        
+        <!-- Soci Search -->
+        <div class="search">
+            <form role="search" method="get" id="custSearchform" class="searchform" action="https://www.sociinc.com">
+                <div class="input-group">
+                    <input type="text" name="s" id="search" placeholder="Search SOCI Products..." autocomplete="off">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default closeSearch" type="button">
+                            <img src="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-close.png" alt="close">
+                        </button>
+                        <input type="hidden" name="post_type" value="product">
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- Header -->
+        <header>
+            <ul class="logos">
+                <li class="red">
+                    <a href="https://www.sociinc.com">
+                        <img src="https://www.sociinc.com/wp-content/themes/soci/assets/img/white-logo.png" alt="SOCI">
+                    </a>
+                </li>
+                <li class="soci hidden-xs">
+                    <a href="https://www.sociinc.com">
+                        <img src="https://www.sociinc.com/wp-content/themes/soci/assets/img/text-logo.png" alt="SOCI">
+                    </a>
+                </li>
+            </ul>
+            <ul class="navigation">
+                <li class="menu">
+                    <a href="#" class="openMenu" 
+                       data-open="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-menu.png" 
+                       data-close="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-close.png">
+                        <img class="menu-open" src="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-menu.png" alt="menu">
+                    </a>
+                </li>
+                <li class="contact">
+                    <a href="https://www.sociinc.com/contact-us">
+                        <span class="hidden-xs">contact</span>
+                        <span class="visible-xs"><i class="fa fa-envelope"></i></span>
+                    </a>
+                </li>
+                <li class="search">
+                    <a href="#" class="openSearch"><i class="fa fa-search"></i></a>
+                </li>
+            </ul>
+        </header>
+        <!-- End Header -->
+        <!-- Main content would go here -->
+        <div class="main-content">
+            <!-- Your page content -->
+        </div>
+        <!-- Footer -->
+        
+        <!-- End Footer -->
+    </div>
+    <!-- jQuery and basic scripts -->
+    <script src="https://www.sociinc.com/wp-includes/js/jquery/jquery.min.js"></script>
+    <script src="https://www.sociinc.com/wp-content/themes/soci/assets/js/min/app.min.js"></script>
+</body>
+</html>

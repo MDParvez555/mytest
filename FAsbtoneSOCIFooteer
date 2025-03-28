@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://www.sociinc.com/wp-content/themes/soci/assets/css/app.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.sociinc.com/wp-content/themes/soci/favicon.ico" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .clearfix {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <div class="social"> 
+            <ul class="si">
+                <li>
+                    <a href="https://www.facebook.com/sociinc" target="_blank">
+                        <img class="si-icon" src="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-facebook.png" alt="facebook">
+                        <span class="si-text">connect with us</span>
+                        <span class="si-network">facebook</span>    
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.pinterest.com/sociinc/" target="_blank">
+                        <img class="si-icon" src="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-pinterest.png" alt="pinterest">
+                        <span class="si-text">follow us on</span>
+                        <span class="si-network">pinterest</span>    
+                    </a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/soci.design/" target="_blank">
+                        <img class="si-icon" src="https://www.sociinc.com/wp-content/themes/soci/assets/img/icon-instagram.png" alt="instagram">
+                        <span class="si-text">discover more</span>
+                        <span class="si-network">instagram</span>    
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="email-signup">
+                <span class="title">join the mailing list</span>
+                <div class="input-group">
+                    <input type="email" class="form-control" placeholder="your email address" aria-describedby="basic-addon1">
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o"></i></span>
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+        
+        <div class="copyright">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 mobcen">&copy; 2025 SOCI INC</div>
+                    <div class="col-md-6 col-sm-6 text-center mobcen">
+                        <!-- Footer navigation links if needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://www.sociinc.com/wp-includes/js/jquery/jquery.min.js"></script>
+    <script src="https://www.sociinc.com/wp-content/themes/soci/assets/js/min/app.min.js"></script>
+</body>
+</html>

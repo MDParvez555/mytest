@@ -19,6 +19,15 @@
 </head>
 <body>
     <footer>
+        <div class="upper redBorder">
+            <ul class="uf">
+                <li><a href="https://www.sociinc.com/warranty"><span class="uf-title">Warranty Information</span><span class="uf-text">OUR ASSURANCE OF QUALITY</span></a></li>
+                <li><a href="https://www.sociinc.com/frequently-asked-questions"><span class="uf-title">FAQ</span><span class="uf-text">THE ANSWERS TO THE MOST ASKED QUESTIONS</span></a></li>
+                <li><a href="https://www.sociinc.com/wholesale"><span class="uf-title">Wholesale</span><span class="uf-text">SET UP AN ACCOUNT AND GET STARTED</span></a></li>
+                <li><a href="http://www.houzz.com/pro/socilp/soci-lp" target="_blank"><span class="uf-title">Idea Gallery</span><span class="uf-text">SEE SOCI AS FEATURED ON HOUZZ</span></a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
         <div class="social"> 
             <ul class="si">
                 <li>

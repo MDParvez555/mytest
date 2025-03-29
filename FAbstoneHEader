@@ -1,6 +1,7 @@
 <!-- <link src="https://www.sociinc.com/wp-content/themes/soci/assets/css/app.css" rel="stylesheet"> -->
 <link rel="shortcut icon" href="https://www.sociinc.com/wp-content/themes/soci/favicon.ico" />
- 
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
 <div class="wrapper" style="width: 100%;">
     <!-- Invisible Nav Closer -->

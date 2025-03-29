@@ -251,5 +251,10 @@
     </script>
     <script src="https://www.sociinc.com/wp-includes/js/jquery/jquery.min.js"></script>
     <script src="https://www.sociinc.com/wp-content/themes/soci/assets/js/min/app.min.js"></script>
+<script type="application/ld+json">
+    
+            {"@context":"https:\/\/schema.org\/","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"name":"Home","@id":"https:\/\/www.sociinc.com"}},{"@type":"ListItem","position":2,"item":{"name":"Shop","@id":"https:\/\/www.sociinc.com\/shop\/"}},{"@type":"ListItem","position":3,"item":{"name":"Search results for &amp;ldquo;GTGG&amp;rdquo;","@id":"\/?s=GTGG&amp;post_type=product"}}]}
+           
+            </script>
 </body>
 </html>

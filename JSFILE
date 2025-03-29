@@ -1,4 +1,4 @@
- $(document).ready(function () {
+$(document).ready(function () {
     function headerWidth() {
         var $wrapper = $(".wrapper");
         var $header = $("header");
@@ -42,8 +42,6 @@
 
     headerWidth();
     updateNavigationPositions();
-
-    // Event Listeners
     $(window).on("resize", headerWidth);
     $(window).on("load resize", updateNavigationPositions);
 
@@ -74,5 +72,5 @@
         }
     });
 
-    console.log(":jfowf");
+   // console.log(":jfowf");
 });

@@ -6,6 +6,9 @@
     <title>Document</title>
     <link href="https://www.sociinc.com/wp-content/themes/soci/assets/css/app.css" rel="stylesheet">
     <link rel="shortcut icon" href="https://www.sociinc.com/wp-content/themes/soci/favicon.ico" />
+<!-- Add this to your <head> if Font Awesome is not yet included -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
         body {
             margin: 0;

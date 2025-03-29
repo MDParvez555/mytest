@@ -1,17 +1,124 @@
-function headerWidth() {
-    var wrapper = document.querySelector("div.wrapper");
-    var header = document.querySelector("header");
+$(document).ready(function () {
+    function headerWidth() {
+        var $wrapper = $(".wrapper");
+        var $header = $("header");
 
-    if (wrapper && header) {
-        var t = wrapper.offsetWidth;
-        header.style.marginLeft = (-t / 2) + "px";
+        if ($wrapper.length && $header.length) {
+            var t = $wrapper.outerWidth();
+            $header.css("margin-left", (-t / 2) + "px");
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", function () {
     headerWidth();
-});
+    $(window).resize(headerWidth);
 
-window.addEventListener("resize", function () {
-    headerWidth();
+    // Handle menu open/close
+    $(document).on("click", "a.openMenu", function (event) {
+        event.preventDefault();
+
+        var $menuButton = $(this);
+        var $mainNavigation = $(".main-nav");
+        var $wrapperElement = $(".wrapper");
+        var $menuImage = $menuButton.find("img");
+        var openImageSrc = $menuButton.data("open");
+        var closeImageSrc = $menuButton.data("close");
+
+        if (!$menuButton.hasClass("activated")) {
+            // OPEN MENU
+            $menuButton.addClass("activated");
+
+            if ($menuImage.length) {
+                $menuImage.attr("src", closeImageSrc);
+            }
+
+            if ($wrapperElement.length) {
+                var remainingWidth = $(window).width() - ($wrapperElement.offset().left + $wrapperElement.outerWidth());
+                $(".nav-closer").fadeIn();
+                $mainNavigation.css({
+                    "right": remainingWidth + "px",
+                    "top": "72px"
+                }).addClass("opened");
+            }
+        } else {
+            // CLOSE MENU
+            $menuButton.removeClass("activated");
+
+            if ($menuImage.length) {
+                $menuImage.attr("src", openImageSrc);
+            }
+
+            $(".nav-closer").fadeOut();
+            $mainNavigation.removeClass("opened").css("top", "-100%");
+        }
+    });
+
+    $(document).on("click", ".nav-closer", function (event) {
+        event.preventDefault();
+        
+        // Close menu properly when clicking on background
+        var $activatedMenuButton = $("a.openMenu.activated");
+        if ($activatedMenuButton.length) {
+            $activatedMenuButton.removeClass("activated");
+            var openImageSrc = $activatedMenuButton.data("open");
+            var $activatedMenuImage = $activatedMenuButton.find("img");
+            if ($activatedMenuImage.length) {
+                $activatedMenuImage.attr("src", openImageSrc);
+            }
+        }
+
+        $(".nav-closer").fadeOut();
+        $(".main-nav").removeClass("opened").css("top", "-100%");
+    });
+
+    // Handle search functionality
+    $(document).on("click", "a.openSearch", function (event) {
+        event.preventDefault();
+        var $wrapperElement = $(".wrapper");
+        if ($wrapperElement.length) {
+            var remainingWidth = $(window).width() - ($wrapperElement.offset().left + $wrapperElement.outerWidth());
+            var $searchDiv = $("div.search");
+            if ($searchDiv.length) {
+                $searchDiv.css({
+                    "right": remainingWidth + "px",
+                    "top": "72px"
+                }).fadeIn();
+            }
+            var $searchInput = $("#search");
+            if ($searchInput.length) {
+                $searchInput.focus();
+            }
+        }
+    });
+
+    $(document).on("click", ".closeSearch", function (event) {
+        event.preventDefault();
+        $("div.search").fadeOut();
+    });
+
+    // Adjust navigation and search bar position
+    function updateNavigationPositions() {
+        var $wrapperElement = $(".wrapper");
+        if ($wrapperElement.length) {
+            var remainingWidth = $(window).width() - ($wrapperElement.offset().left + $wrapperElement.outerWidth());
+            $(".main-nav.opened").css("right", remainingWidth + "px");
+            $("div.search").css("right", remainingWidth + "px");
+        }
+    }
+
+    $(window).on("load resize", updateNavigationPositions);
+
+    $(window).on("load resize", function () {
+        if (typeof sliderInteriors === "function") {
+            sliderInteriors();
+        }
+    });
+
+    // Header change on scroll
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            $('.fixed-header').addClass('fixed-enabled');
+        } else {
+            $('.fixed-header').removeClass('fixed-enabled');
+        }
+    });
 });

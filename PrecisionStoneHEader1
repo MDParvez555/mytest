@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        *, *:after, *:before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+        }
+       
+        body {
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            font-weight: 400;
+            letter-spacing: 2px;
+        }        
+
+
+        .nm-header {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1002;
+            line-height: 50px;
+            width: 100%;
+            padding-top: 17px;
+            padding-bottom: 17px;
+            transform: translateZ(0px);
+            overflow: visible;
+            transition: 150ms linear;
+            background: rgb(255, 255, 255);
+        }
+
+        .nm-header {
+            line-height: 120px;
+            padding-top: 17px;
+            padding-bottom: 17px;
+            background: #FFF;
+        }
+        @media (max-width: 991px) {
+            .nm-header {
+                line-height: 90px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+       
+    .touch.header-fixed .nm-header, .has-top-bar.header-fixed .nm-header {
+        position: absolute;
+    }
+    
+   
+    .header-search-open .nm-header, .mobile-menu-open .nm-header {
+        transition: 200ms linear, background-color 1ms;
+    }
+    .home .nm-header {
+            background: #FFF;
+        }
+
+    .mobile-menu-open .nm-header {
+        background: #FFFFFF !important;
+    }
+  
+    .header-on-scroll .nm-header, .home.header-transparency.header-on-scroll .nm-header {
+    background: #FFF;
+}
+    .header-on-scroll .nm-header:not(.static-on-scroll) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    .touch.header-fixed.header-on-scroll .nm-header, .has-top-bar.header-fixed.header-on-scroll .nm-header, .header-fixed .nm-header {
+        position: fixed;
+    }
+   
+
+        .home .nm-header {
+            background: #FFF;
+        }
+
+        .touch.header-fixed.header-on-scroll .nm-header,
+        .has-top-bar.header-fixed.header-on-scroll .nm-header,
+        .header-fixed .nm-header {
+            position: fixed;
+        }
+
+        .touch.header-fixed .nm-header,
+        .has-top-bar.header-fixed .nm-header {
+            position: absolute;
+        }
+
+        ol,ul {
+            box-sizing: border-box;
+        }
+        header {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        .clear::before,
+        .clear::after,
+        .clearfix::before,
+        .clearfix::after {
+            content: " ";
+            display: table;
+        }
+        .nm-header-inner {
+            position: relative;
+            height: auto;
+        }
+        .nm-row:before,
+        .nm-row:after {
+            display: table;
+            content: " ";
+        }
+
+        .nm-header-col {
+            position: static;
+        }
+
+        .col-xs-1,
+        .col-xs-2,
+        .col-xs-3,
+        .col-xs-4,
+        .col-xs-5,
+        .col-xs-6,
+        .col-xs-7,
+        .col-xs-8,
+        .col-xs-9,
+        .col-xs-10,
+        .col-xs-11,
+        .col-xs-12 {
+            float: left;
+        }
+
+        .col-xs-1,
+        .col-sm-1,
+        .col-md-1,
+        .col-lg-1,
+        .col-xs-2,
+        .col-sm-2,
+        .col-md-2,
+        .col-lg-2,
+        .col-xs-3,
+        .col-sm-3,
+        .col-md-3,
+        .col-lg-3,
+        .col-xs-4,
+        .col-sm-4,
+        .col-md-4,
+        .col-lg-4,
+        .col-xs-5,
+        .col-sm-5,
+        .col-md-5,
+        .col-lg-5,
+        .col-xs-6,
+        .col-sm-6,
+        .col-md-6,
+        .col-lg-6,
+        .col-xs-7,
+        .col-sm-7,
+        .col-md-7,
+        .col-lg-7,
+        .col-xs-8,
+        .col-sm-8,
+        .col-md-8,
+        .col-lg-8,
+        .col-xs-9,
+        .col-sm-9,
+        .col-md-9,
+        .col-lg-9,
+        .col-xs-10,
+        .col-sm-10,
+        .col-md-10,
+        .col-lg-10,
+        .col-xs-11,
+        .col-sm-11,
+        .col-md-11,
+        .col-lg-11,
+        .col-xs-12,
+        .col-sm-12,
+        .col-md-12,
+        .col-lg-12 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+
+        .nm-header-logo a {
+            display: block;
+        }
+
+        
+
+        .nm-header.menu-centered .nm-header-logo {
+            float: left;
+            width: 25%;
+        }
+
+      
+       
+
+        a {
+            background-color: transparent;
+        }
+        
+
+        img {
+            font-size: 0px;
+            color: transparent;
+            max-width: 100%;
+            height: auto;
+            vertical-align: bottom;
+        }
+
+        .nm-header-logo svg,
+        .nm-header-logo img {
+            width: auto;
+            max-width: none;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .nm-header-logo svg,
+        .nm-header-logo img {
+            height: 120px;
+        }
+
+        /* @media (max-width: 991px) {
+    .nm-header-logo svg, .nm-header-logo img {
+        height: 16px;
+    }
+} */
+        @media (max-width: 991px) {
+
+            .nm-header-logo svg,
+            .nm-header-logo img {
+                height: 90px;
+            }
+        }
+
+        .nm-header.menu-centered .nm-main-menu {
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+
+        @media (max-width: 991px) {
+            .nm-header.menu-centered .nm-main-menu {
+                display: none;
+            }
+        }
+
+        .nm-header.menu-centered .nm-main-menu {
+            width: 70%;
+        }
+
+        .nm-main-menu {
+            display: block;
+        }
+
+        .nm-header.menu-centered .nm-main-menu>ul,
+        .nm-header.menu-centered .nm-right-menu>ul {
+            text-align: left;
+        }
+
+        .nm-main-menu>ul {
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        .nm-menu li {
+            position: relative;
+            float: left;
+        }
+
+      
+        .nm-menu li a {
+            display: inline-block;
+            font-size: 16px;
+            line-height: 1;
+            color: rgb(112, 112, 112);
+            vertical-align: bottom;
+            text-decoration: none;
+            padding: 16px;
+        }
+
+        .nm-menu li a {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .nm-menu li a {
+            color: #707070;
+        }
+
+        .nm-menu li a:hover {
+            color: #282828;
+        }
+
+        .nm-menu li:not(.no-hover):hover>.sub-menu {
+            display: block;
+        }
+
+       
+
+        .nm-menu .megamenu>.sub-menu>ul>li:not(.nm-menu-item-has-image)>a,
+        .nm-menu .sub-menu li a .label,
+        .nm-menu .sub-menu li a:hover {
+            color: #EEE;
+        }
+
+        .nm-menu .sub-menu li a:hover {
+            color: rgb(238, 238, 238);
+        }
+
+        .nm-menu .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -12px;
+            z-index: 10010;
+            min-width: 248px;
+            animation-duration: 0.3s;
+            animation-fill-mode: both;
+            animation-name: nm_menu_anim;
+            padding: 18px 0px 22px;
+            background: rgb(40, 40, 40);
+        }
+        .nm-menu .sub-menu {
+            background: #282828;
+        }
+        .nm-menu .sub-menu {
+            background: #281b1bc7;
+        }
+
+        .nm-sub-menu-bridge {
+            display: none;
+        }
+
+        .nm-sub-menu-bridge {
+            height: 37px;
+        }
+
+
+        .nm-menu .sub-menu li {
+            float: none;
+            position: relative;
+            z-index: 100000;
+        }
+
+        .nm-menu li {
+            position: relative;
+            float: left;
+        }
+
+        @media (max-width: 991px) {
+            .nm-right-menu ul li {
+                display: none;
+            }
+        }
+
+      
+
+        .nm-menu .sub-menu li a {
+            color: #A0A0A0;
+        }
+
+        .nm-menu .sub-menu li a {
+            display: block;
+            font-size: 14px;
+            color: rgb(160, 160, 160);
+            padding: 8px 27px;
+        }
+        .vc_progress_bar .vc_single_bar .vc_label,
+        .woocommerce-tabs .tabs li a span,
+        .product .summary .price del .amount,
+        #nm-shop-sidebar-popup-reset-button,
+        #nm-shop-sidebar-popup .nm-shop-sidebar .widget:last-child .nm-widget-title,
+        #nm-shop-sidebar-popup .nm-shop-sidebar .widget .nm-widget-title,
+        .nm-shop-filter-menu li a i,
+        .woocommerce-loop-category__title .count,
+        span.wpcf7-not-valid-tip,
+        .widget_rss ul li .rss-date,
+        .wp-caption-text,
+        .comment-respond h3 #cancel-comment-reply-link,
+        .nm-blog-categories-toggle li .count,
+        .nm-menu-wishlist-count,
+        .nm-menu li.nm-menu-offscreen .nm-menu-cart-count,
+        .nm-menu-cart .count,
+        .nm-menu .sub-menu li a,
+        body {
+            font-size: 16px;
+        }
+
+
+        .nm-header.menu-centered .nm-right-menu {
+            max-width: 25%;
+            margin-right: 0px;
+        }
+
+        .nm-right-menu {
+            float: right;
+            margin-right: -16px;
+        }
+
+        .nm-header.menu-centered .nm-right-menu>ul {
+            margin-right: -16px;
+        }
+
+        .nm-header.menu-centered .nm-main-menu>ul,
+        .nm-header.menu-centered .nm-right-menu>ul {
+            text-align: left;
+        }
+
+        .nm-right-menu>ul {
+            display: inline-block;
+            line-height: 1;
+            vertical-align: middle;
+        }
+
+        [class^="nm-font-"],
+        [class*=" nm-font-"] {
+            font-family: 'nm-font' !important;
+            speak: never;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .nm-font-heart-outline:before {
+            content: "\e902";
+        }
+
+        .nm-header.menu-centered .nm-menu li.nm-menu-offscreen {
+            padding-left: 1px;
+        }
+
+        .nm-menu li.nm-menu-offscreen {
+            position: relative;
+            display: none;
+        }
+        @media (max-width: 991px) {
+            .nm-menu li.nm-menu-offscreen {
+                display: block;
+            }
+        }
+
+        .nm-catalog-mode.header-mobile-alt .nm-menu li.nm-menu-offscreen .nm-menu-cart-count {
+            display: none;
+        }
+        a, abbr, address, article, aside, audio, b, blockquote, body, canvas, caption, center, cite, code, dd, del, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, hr, html, i, iframe, img, ins, label, legend, li, menu, nav, object, ol, output, p, pre, q, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        a {
+            color: rgb(220, 152, 20);
+            outline: 0px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a,
+        a.dark:hover,
+        a.gray:hover,
+        a.invert-color:hover,
+        .nm-highlight-text,
+        .nm-highlight-text h1,
+        .nm-highlight-text h2,
+        .nm-highlight-text h3,
+        .nm-highlight-text h4,
+        .nm-highlight-text h5,
+        .nm-highlight-text h6,
+        .nm-highlight-text p,
+        .nm-menu-wishlist-count,
+        .nm-menu-cart a .count,
+        .nm-menu li.nm-menu-offscreen .nm-menu-cart-count,
+        .page-numbers li span.current,
+        .page-numbers li a:hover,
+        .nm-blog .sticky .nm-post-thumbnail:before,
+        .nm-blog .category-sticky .nm-post-thumbnail:before,
+        .nm-blog-categories-list li a:hover,
+        .nm-blog-categories ul li.current-cat a,
+        .widget ul li.active,
+        .widget ul li a:hover,
+        .widget ul li a:focus,
+        .widget ul li a.active,
+        #wp-calendar tbody td a,
+        .nm-banner-link.type-txt:hover,
+        .nm-banner.text-color-light .nm-banner-link.type-txt:hover,
+        .nm-portfolio-categories li.current a,
+        .add_to_cart_inline ins,
+        .nm-product-categories.layout-separated .product-category:hover .nm-product-category-text>a,
+        .woocommerce-breadcrumb a:hover,
+        .products .price ins .amount,
+        .products .price ins,
+        .no-touch .nm-shop-loop-actions>a:hover,
+        .nm-shop-menu ul li a:hover,
+        .nm-shop-menu ul li.current-cat>a,
+        .nm-shop-menu ul li.active a,
+        .nm-shop-heading span,
+        .nm-single-product-menu a:hover,
+        .woocommerce-product-gallery__trigger:hover,
+        .woocommerce-product-gallery .flex-direction-nav a:hover,
+        .product-summary .price .amount,
+        .product-summary .price ins,
+        .product .summary .price .amount,
+        .nm-product-wishlist-button-wrap a.added:active,
+        .nm-product-wishlist-button-wrap a.added:focus,
+        .nm-product-wishlist-button-wrap a.added:hover,
+        .nm-product-wishlist-button-wrap a.added,
+        .woocommerce-tabs .tabs li a span,
+        #review_form .comment-form-rating .stars:hover a,
+        #review_form .comment-form-rating .stars.has-active a,
+        .product_meta a:hover,
+        .star-rating span:before,
+        .nm-order-view .commentlist li .comment-text .meta,
+        .nm_widget_price_filter ul li.current,
+        .post-type-archive-product .widget_product_categories .product-categories>li:first-child>a,
+        .widget_product_categories ul li.current-cat>a,
+        .widget_layered_nav ul li.chosen a,
+        .widget_layered_nav_filters ul li.chosen a,
+        .product_list_widget li ins .amount,
+        .woocommerce.widget_rating_filter .wc-layered-nav-rating.chosen>a,
+        .nm-wishlist-button.added:active,
+        .nm-wishlist-button.added:focus,
+        .nm-wishlist-button.added:hover,
+        .nm-wishlist-button.added,
+        .slick-prev:not(.slick-disabled):hover,
+        .slick-next:not(.slick-disabled):hover,
+        .flickity-button:hover,
+        .pswp__button:hover,
+        .nm-portfolio-categories li a:hover {
+            color: #0BA096;
+        }
+        
+
+       
+        .nm-menu li.nm-menu-offscreen a {
+            display: inline-block;
+            font-size: 0px;
+            line-height: 16px;
+        }
+
+        .nm-menu-icon {
+            position: relative;
+            width: 21px;
+            height: 16px;
+        }
+        .nm-menu-icon span {
+            display: block;
+            position: absolute;
+            left: 0px;
+            width: 100%;
+            height: 1px;
+            transform: rotate(0deg);
+            transition: transform 0.1s;
+            background: rgb(40, 40, 40);
+        }
+        .nm-menu-icon span {
+            background: #707070;
+        }
+        .nm-menu-icon span.line-1 {
+            top: 0px;
+        }
+        .mobile-menu-open .nm-menu-icon span.line-1 {
+            top: 7px;
+            transform: rotate(45deg);
+        }
+        .mobile-menu-open .nm-menu-icon span.line-2 {
+                background: none;
+            }
+            .nm-menu-icon span.line-2 {
+                top: 7px;
+            }
+            .mobile-menu-open .nm-menu-icon span.line-3 {
+                top: 7px;
+                transform: rotate(-45deg);
+            }
+            .nm-menu-icon span.line-3 {
+                bottom: 1px;
+            }
+
+       
+        .nm-menu-icon span.line-2 {
+            top: 7px;
+        }
+
+        .nm-menu-icon span.line-3 {
+            bottom: 1px;
+        }
+
+        .csstransforms3d #nm-mobile-menu {
+            transform: translate3d(0px, -150px, 0px);
+        }
+
+        .csstransforms #nm-mobile-menu {
+            transition: opacity 0.25s, transform 0.25s;
+        }
+        .csstransforms3d .mobile-menu-open #nm-mobile-menu {
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        .header-fixed #nm-mobile-menu {
+            position: fixed;
+            z-index: 1001;
+        }
+        .mobile-menu-open #nm-mobile-menu {
+        top: 0px;
+        opacity: 1;
+        z-index: 1001;
+    }
+
+        #nm-mobile-menu {
+            background: #FFF;
+        }
+
+        #nm-mobile-menu {
+            position: absolute;
+            top: -100%;
+            left: 0px;
+            z-index: -1;
+            width: 100%;
+            opacity: 0;
+            overflow: hidden;
+            background: rgb(255, 255, 255);
+        }
+
+        .header-fixed #nm-mobile-menu .nm-mobile-menu-scroll {
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+
+        .nm-mobile-menu-scroll {
+            max-height: 710.716px;
+            margin-right: -14px;
+            margin-top: 110.852px;
+        }
+        .nm-mobile-menu-scroll{
+            max-height: 842.156px;
+            margin-right: -14px;
+            margin-top: 110.844px;
+        }
+
+       
+        #nm-mobile-menu .nm-mobile-menu-content {
+            border-top: 1px solid rgb(238, 238, 238);
+        }
+
+        #nm-mobile-menu .nm-mobile-menu-content {
+            padding: 0px 0px 32px;
+        }
+       
+        
+
+        .nm-row {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding-right: 15px;
+            padding-left: 15px;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+        .nm-row {
+            max-width: none;
+        }
+
+        .nm-row:before,
+        .nm-row:after {
+            display: table;
+            content: " ";
+        }
+        @media (max-width: 768px) {
+            .nm-row {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }        
+        @media (min-width: 1400px) {
+            .nm-row {
+                padding-right: 2.5%;
+                padding-left: 2.5%;
+            }
+        }
+        .col-xs-1,
+        .col-sm-1,
+        .col-md-1,
+        .col-lg-1,
+        .col-xs-2,
+        .col-sm-2,
+        .col-md-2,
+        .col-lg-2,
+        .col-xs-3,
+        .col-sm-3,
+        .col-md-3,
+        .col-lg-3,
+        .col-xs-4,
+        .col-sm-4,
+        .col-md-4,
+        .col-lg-4,
+        .col-xs-5,
+        .col-sm-5,
+        .col-md-5,
+        .col-lg-5,
+        .col-xs-6,
+        .col-sm-6,
+        .col-md-6,
+        .col-lg-6,
+        .col-xs-7,
+        .col-sm-7,
+        .col-md-7,
+        .col-lg-7,
+        .col-xs-8,
+        .col-sm-8,
+        .col-md-8,
+        .col-lg-8,
+        .col-xs-9,
+        .col-sm-9,
+        .col-md-9,
+        .col-lg-9,
+        .col-xs-10,
+        .col-sm-10,
+        .col-md-10,
+        .col-lg-10,
+        .col-xs-11,
+        .col-sm-11,
+        .col-md-11,
+        .col-lg-11,
+        .col-xs-12,
+        .col-sm-12,
+        .col-md-12,
+        .col-lg-12 {
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        .col-xs-1,
+        .col-xs-2,
+        .col-xs-3,
+        .col-xs-4,
+        .col-xs-5,
+        .col-xs-6,
+        .col-xs-7,
+        .col-xs-8,
+        .col-xs-9,
+        .col-xs-10,
+        .col-xs-11,
+        .col-xs-12 {
+            float: left;
+        }
+
+        .col-xs-12 {
+            width: 100%;
+        }
+
+        .nm-header-col {
+            position: static;
+        }
+
+        #nm-mobile-menu-main-ul {
+            padding-top: 17px;
+        }
+      
+        #nm-mobile-menu-main-ul.menu>li>a {
+            font-size: 15px;
+        }
+
+        #nm-mobile-menu .menu>li>a {
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        .no-touch #nm-mobile-menu .menu a:hover, #nm-mobile-menu .menu li.active>a, #nm-mobile-menu .menu>li.active>.nm-menu-toggle:before, #nm-mobile-menu .menu a .label, .nm-mobile-menu-social-ul li a:hover {
+    color: #282828;
+}
+        #nm-mobile-menu .menu li .nm-menu-toggle {
+            position: absolute;
+            top: 6px;
+            right: 0px;
+            display: none;
+            height: 28px;
+            font-family: nm-font;
+            font-size: 11px;
+            line-height: 28px;
+            font-weight: 400;
+            color: rgb(40, 40, 40);
+            padding-left: 10px;
+        }
+
+     
+
+        #nm-mobile-menu .menu a {
+            display: inline-block;
+            line-height: 2;
+            color: rgb(40, 40, 40);
+            padding: 6px 0px;
+            white-space: nowrap;
+        }
+
+     
+      
+        #nm-mobile-menu .menu li.menu-item-has-children {
+            cursor: pointer;
+        }
+
+        #nm-mobile-menu .menu li.menu-item-has-children>.nm-menu-toggle {
+            display: inline-block;
+        }
+
+        #nm-mobile-menu .menu li .nm-menu-toggle::before {
+            display: block;
+            content: "\e114";
+        }
+        #nm-mobile-menu .menu>li.active>.nm-menu-toggle:before {
+            content: "\e115";
+        }
+       
+       
+
+        #nm-mobile-menu .sub-menu {
+            display: none;
+            padding: 16px 0px 13px;
+            border-top: 1px solid rgb(238, 238, 238);
+        }
+        li {
+            list-style: none;
+        }
+        #nm-mobile-menu .menu li {
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+        #nm-mobile-menu .sub-menu li {
+            cursor: default;
+            border-bottom: 0px none;
+        }
+        #nm-mobile-menu .menu li {
+            border-bottom-color: #EEE;
+        }
+        
+        #nm-mobile-menu .sub-menu {
+            border-top-color: #EEE;
+        }
+
+        #nm-mobile-menu .sub-menu a {
+            text-indent: 15px;
+            padding: 0px 0px 3px;
+        }
+        #nm-mobile-menu .sub-menu li .nm-menu-toggle {
+            top: 1px;
+        }
+        #nm-mobile-menu .menu a,
+        #nm-mobile-menu .menu li .nm-menu-toggle,
+        #nm-mobile-menu-top-ul .nm-mobile-menu-item-search input,
+        #nm-mobile-menu-top-ul .nm-mobile-menu-item-search span,
+        .nm-mobile-menu-social-ul li a {
+            color: #555;
+        }
+
+
+        
+        #nm-mobile-menu .sub-menu.open {
+            display: block;
+        }
+
+        #nm-mobile-menu-secondary-ul {
+            padding-top: 17px;
+        }
+
+        #nm-mobile-menu-secondary-ul.menu li a {
+            font-size: 13px;
+        }
+
+        .nm-row:after {
+            clear: both;
+        }
+
+        .nm-row:before,
+        .nm-row:after {
+            display: table;
+            content: " ";
+        }
+
+        .nm-header.menu-centered .nm-right-menu {
+            max-width: 25%;
+            margin-right: 0px;
+        }
+
+        @media (max-width: 991px) {
+            .nm-header.menu-centered .nm-right-menu {
+                max-width: none;
+            }
+        }
+
+        .nm-right-menu {
+            float: right;
+            margin-right: -16px;
+        }
+        #nm-page-overlay {
+            visibility: hidden;
+            position: fixed;
+            top: -1px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            z-index: 1000;
+            content: " ";
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+            background: rgba(51, 51, 51, 0.37);
+            transition: opacity 0.2s;
+        }
+        #nm-page-overlay.show {
+        visibility: visible;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+        
+    .nm-mobile-menu-social-ul {
+        line-height: 10px;
+        padding-top: 30px;
+    }
+.clear, .clearfix {
+}
+  
+#nm-quickview {
+    position: relative;
+    display: none;
+    max-width: 1080px;
+    margin: 10px auto;
+    background: #fff;
+}
+@media (max-width: 1100px) {
+    #nm-quickview {
+        max-width: 550px;
+    }
+}
+
+  </style>
+</head>
+
+<body>
+    <header id="nm-header" class="nm-header menu-centered resize-on-scroll clear">
+        <div class="nm-header-inner">
+            <div class="nm-header-row nm-row">
+                <div class="nm-header-col col-xs-12">
+                    <div class="nm-header-logo"> <a href="https://precisionstonecollection.com/"> <img
+                                src="https://precisionstonecollection.com/wp-content/uploads/2025/02/Precision-Stone-Collection-339-150.png"
+                                class="nm-logo" width="339" height="150" alt="Precision Stone Collection"> </a> </div>
+                    <nav class="nm-main-menu">
+                        <ul id="nm-main-menu-ul" class="nm-menu">
+                            <li id="menu-item-58391"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-32085 current_page_item menu-item-58391">
+                                <a href="https://precisionstonecollection.com/" aria-current="page">Home</a>
+                            </li>
+                            <li id="menu-item-58375"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-58375">
+                                <a href="https://precisionstonecollection.com/about-us/">About</a>
+                                <div class="sub-menu">
+                                    <div class="nm-sub-menu-bridge"></div>
+                                    <ul class="nm-sub-menu-ul">
+                                        <li id="menu-item-58373"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58373">
+                                            <a href="https://precisionstonecollection.com/brands/">Brands</a>
+                                        </li>
+                                        <li id="menu-item-58612"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58612">
+                                            <a href="https://precisionstonecollection.com/reseller-program/">Dealers
+                                                Program</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li id="menu-item-58625"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58625"><a
+                                    href="#">Live Inventory</a>
+                            </li>
+                            <li id="menu-item-58761"
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58761">
+                                <a href="#">Collection</a>
+                                <div class="sub-menu">
+                                    <div class="nm-sub-menu-bridge"></div>
+                                    <ul class="nm-sub-menu-ul">
+                                        <li id="menu-item-58624"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58624">
+                                            <a href="https://precisionstonecollection.com/slab-panels/">Slab &amp;
+                                                Panels</a>
+                                        </li>
+                                        <li id="menu-item-58734"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58734">
+                                            <a href="https://precisionstonecollection.com/bricks/">Bricks</a>
+                                        </li>
+                                        <li id="menu-item-58626"
+                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58626">
+                                            <a href="https://precisionstonecollection.com/bath/">Bath</a>
+                                        </li>
+                                        <li id="menu-item-58889"
+                                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58889">
+                                            <a href="https://precision-stone-collection.mybigcommerce.com/">Shop
+                                                Accessories</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li id="menu-item-58374"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58374"><a
+                                    href="https://precisionstonecollection.com/contact/">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                   
+                    <nav class="nm-right-menu">
+                        <ul id="nm-right-menu-ul" class="nm-menu">
+                            <li class="nm-menu-wishlist menu-item-default has-icon" aria-label="Wishlist"><a
+                                    href="https://precisionstonecollection.com/wishlist/"><i
+                                        class="nm-font nm-font-heart-outline"></i></a></li>
+                            <li class="nm-menu-offscreen menu-item-default"> 
+                                <!-- <span class="nm-menu-cart-count count nm-count-zero">0</span>  -->
+                                    <a href="#"
+                                    id="nm-mobile-menu-button" class="clicked">
+                                    <div class="nm-menu-icon"><span class="line-1"></span><span
+                                            class="line-2"></span><span class="line-3"></span></div>
+                                </a> </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="nm-mobile-menu" class="nm-mobile-menu">
+        <div class="nm-mobile-menu-scroll" style="max-height: 842.156px; margin-right: -14px; margin-top: 110.844px;">
+            <div class="nm-mobile-menu-content">
+                <div class="nm-row">
+                    <div class="nm-mobile-menu-main col-xs-12">
+                        <ul id="nm-mobile-menu-main-ul" class="menu">
+                            <li
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-32085 current_page_item menu-item-58391">
+                                <a href="https://precisionstonecollection.com/" aria-current="page">Home</a><span
+                                    class="nm-menu-toggle"></span></li>
+                            <li
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-58375">
+                                <a href="https://precisionstonecollection.com/about-us/">About</a><span
+                                    class="nm-menu-toggle"></span>
+                                <ul class="sub-menu">
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58373">
+                                        <a href="https://precisionstonecollection.com/brands/">Brands</a><span
+                                            class="nm-menu-toggle"></span></li>
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58612">
+                                        <a href="https://precisionstonecollection.com/reseller-program/">Dealers
+                                            Program</a><span class="nm-menu-toggle"></span></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58625"><a
+                                    href="#">Live Inventory</a><span class="nm-menu-toggle"></span></li>
+                            <li
+                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-58761">
+                                <a href="#">Collection</a><span class="nm-menu-toggle"></span>
+                                <ul class="sub-menu">
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58624">
+                                        <a href="https://precisionstonecollection.com/slab-panels/">Slab &amp;
+                                            Panels</a><span class="nm-menu-toggle"></span></li>
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58734">
+                                        <a href="https://precisionstonecollection.com/bricks/">Bricks</a><span
+                                            class="nm-menu-toggle"></span></li>
+                                    <li
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58626">
+                                        <a href="https://precisionstonecollection.com/bath/">Bath</a><span
+                                            class="nm-menu-toggle"></span></li>
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58889">
+                                        <a href="https://precision-stone-collection.mybigcommerce.com/">Shop
+                                            Accessories</a><span class="nm-menu-toggle"></span></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-58374"><a
+                                    href="https://precisionstonecollection.com/contact/">Contact</a><span
+                                    class="nm-menu-toggle"></span></li>
+                        </ul>
+                    </div>
+                    <div class="nm-mobile-menu-secondary col-xs-12">
+                        <ul id="nm-mobile-menu-secondary-ul" class="menu">
+                            <li class="nm-menu-item-wishlist menu-item"><a
+                                    href="https://precisionstonecollection.com/wishlist/"><span
+                                        class="nm-menu-wishlist-title">Wishlist</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="nm-mobile-menu-social col-xs-12">
+                        <ul class="nm-mobile-menu-social-ul"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nm-page-overlay" class="nm-mobile-menu-overlay"></div>
+    <div id="nm-quickview" class="clearfix"></div>
+</body>
+<script>
+    class MobileMenu {
+  constructor() {
+    this.body = document.body;
+    this.window = window;
+    this.header = document.getElementById('nm-header');
+    this.mobileMenuBtn = document.getElementById('nm-mobile-menu-button');
+    this.mobileMenu = document.getElementById('nm-mobile-menu');
+    this.mobileMenuScroller = this.mobileMenu?.querySelector('.nm-mobile-menu-scroll');
+    this.pageOverlay = document.getElementById('nm-page-overlay');
+    this.classes = {
+      menuOpen: 'mobile-menu-open',
+      overlayShow: 'show',
+      menuOverlay: 'nm-mobile-menu-overlay',
+      activeItem: 'active',
+      openSubmenu: 'open',
+      overlayFadeOut: 'fade-out'
+    };
+    this.scrollbarWidth = this.getScrollbarWidth();
+    this.animationSpeed = 250; // ms
+    this.desktopBreakpoint = 992; // px
+    if (this.mobileMenu && this.mobileMenuBtn) {
+      this.init();
+    }
+  }
+  
+  init() {
+    this.prepareMenu();
+    this.bindEvents();
+    this.window.addEventListener('resize', this.debounce(() => {
+      this.handleResize();
+    }, 250));
+    this.handleMediaQueryChange();
+  }
+  bindEvents() {
+    this.mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.toggleMenu();
+    });
+    const menuItems = this.mobileMenu.querySelectorAll('ul li.menu-item');
+    menuItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' && !e.target.classList.contains('nm-menu-toggle')) {
+          return;
+        }
+        const submenu = item.querySelector('ul');
+        if (submenu) {
+          e.stopPropagation();
+          e.preventDefault();
+          item.classList.toggle(this.classes.activeItem);
+          submenu.classList.toggle(this.classes.openSubmenu);
+        }
+      });
+    });
+    this.pageOverlay.addEventListener('click', () => {
+      this.closeMenu(true);
+    });
+  }
+  prepareMenu() {
+    const headerHeight = this.header.offsetHeight;
+    const windowHeight = this.window.innerHeight;
+    const menuHeight = windowHeight - headerHeight;
+    this.mobileMenuScroller.style.maxHeight = `${menuHeight}px`;
+    this.mobileMenuScroller.style.marginRight = `-${this.scrollbarWidth}px`;
+  }
+  toggleMenu() {
+    if (this.isMenuOpen()) {
+      this.closeMenu(true);
+    } else {
+      this.openMenu();
+    }
+  }
+  openMenu() {
+    const headerHeight = this.header.offsetHeight;
+    this.mobileMenuScroller.style.marginTop = `${headerHeight}px`;
+    this.body.classList.add(this.classes.menuOpen);
+    this.pageOverlay.classList.add(this.classes.overlayShow, this.classes.menuOverlay);
+    this.addMediaQueryListener();
+  }
+  closeMenu(withOverlay = true) {
+    this.body.classList.remove(this.classes.menuOpen);
+    if (withOverlay) {
+      this.pageOverlay.classList.add(this.classes.overlayFadeOut);
+      setTimeout(() => {
+        this.pageOverlay.classList.remove(
+          this.classes.overlayShow, 
+          this.classes.menuOverlay,
+          this.classes.overlayFadeOut
+        );
+      }, this.animationSpeed);
+    }
+    setTimeout(() => {
+      this.resetMenuState();
+    }, this.animationSpeed);
+  }
+  resetMenuState() {
+    const activeItems = this.mobileMenu.querySelectorAll(`.${this.classes.activeItem}`);
+    activeItems.forEach(item => {
+      item.classList.remove(this.classes.activeItem);
+      const submenu = item.querySelector('ul');
+      if (submenu) submenu.classList.remove(this.classes.openSubmenu);
+    });
+  }
+  handleResize() {
+    this.prepareMenu();
+    this.handleMediaQueryChange();
+  }
+  
+  handleMediaQueryChange() {
+    if (window.innerWidth >= this.desktopBreakpoint && this.isMenuOpen()) {
+      this.closeMenu(true);
+    }
+  }
+  
+  addMediaQueryListener() {
+    const mediaQuery = window.matchMedia(`(min-width: ${this.desktopBreakpoint}px)`);
+    
+    const handler = (e) => {
+      if (e.matches && this.isMenuOpen()) {
+        this.closeMenu(true);
+      }
+    };
+    
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handler);
+    } else {
+      mediaQuery.addListener(handler); // Fallback for older browsers
+    }
+    
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handler);
+      } else {
+        mediaQuery.removeListener(handler);
+      }
+    };
+  }
+  
+  isMenuOpen() {
+    return this.body.classList.contains(this.classes.menuOpen);
+  }
+  
+  getScrollbarWidth() {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  }
+  
+  debounce(func, wait) {
+    let timeout;
+    return function() {
+      const context = this, args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        func.apply(context, args);
+      }, wait);
+    };
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  new MobileMenu();
+});
+a.$mobileMenuLi.on("click.nmMenuToggle", function(e) {
+    e.stopPropagation();
+    a.$document.trigger("nm_mobile_menu_toggle", [e, this]);
+    var g = b(this)
+      , l = g.children("ul");
+    !l.length || g.hasClass("nm-notoggle") && !b(e.target).hasClass("nm-menu-toggle") || (e.preventDefault(),
+    g.toggleClass("active"),
+    l.toggleClass("open"))
+});
+</script>
+
+</html>

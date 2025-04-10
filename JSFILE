@@ -1,76 +1,32 @@
-$(document).ready(function () {
-    function headerWidth() {
-        var $wrapper = $(".wrapper");
-        var $header = $("header");
-        if ($wrapper.length && $header.length) {
-            var t = $wrapper.outerWidth();
-            $header.css("margin-left", (-t / 2) + "px");
-        }
-    }
+bindEvents() {
+  // Clone the mobile menu button to remove existing listeners
+  const originalBtn = this.mobileMenuBtn;
+  const newBtn = originalBtn.cloneNode(true);
+  originalBtn.parentNode.replaceChild(newBtn, originalBtn);
+  this.mobileMenuBtn = newBtn; // Update reference in case used elsewhere
 
-    function updateNavigationPositions() {
-        var $wrapperElement = $(".wrapper");
-        if ($wrapperElement.length) {
-            var remainingWidth = $(window).width() - ($wrapperElement.offset().left + $wrapperElement.outerWidth());
-            $(".main-nav.opened, div.search").css("right", remainingWidth + "px");
-        }
-    }
+  this.mobileMenuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    this.toggleMenu();
+  });
 
-    function toggleMenu(event) {
-        event.preventDefault();
-        var $menuButton = $("a.openMenu");
-        var $menuImage = $menuButton.find("img");
-        var $mainNav = $(".main-nav");
-        var $navCloser = $(".nav-closer");
-
-        if ($menuButton.hasClass("activated")) {
-            // CLOSE MENU
-            $menuButton.removeClass("activated");
-            if ($menuImage.length) $menuImage.attr("src", $menuButton.attr("data-open"));
-            $navCloser.hide();
-            $mainNav.css("top", "-100%");
-        } else {
-            // OPEN MENU
-            $menuButton.addClass("activated");
-            if ($menuImage.length) $menuImage.attr("src", $menuButton.attr("data-close"));
-
-            var remainingWidth = $(window).width() - ($(".wrapper").offset().left + $(".wrapper").outerWidth());
-            $navCloser.show();
-            $mainNav.css({ right: remainingWidth + "px", top: "72px" }).addClass("opened");
-        }
-    }
-
-    headerWidth();
-    updateNavigationPositions();
-    $(window).on("resize", headerWidth);
-    $(window).on("load resize", updateNavigationPositions);
-
-    $(document).on("click", "a.openMenu, .nav-closer", toggleMenu);
-
-    $(document).on("click", "a.openSearch", function (event) {
-        event.preventDefault();
-        var $wrapperElement = $(".wrapper");
-        if ($wrapperElement.length) {
-            var remainingWidth = $(window).width() - ($wrapperElement.offset().left + $wrapperElement.outerWidth());
-            var $searchDiv = $("div.search");
-            if ($searchDiv.length) {
-                $searchDiv.css({ right: remainingWidth + "px", top: "72px" });
-            }
-            $("#search").focus();
-        }
+  const menuItems = this.mobileMenu.querySelectorAll('ul li.menu-item');
+  menuItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A' && !e.target.classList.contains('nm-menu-toggle')) {
+        return;
+      }
+      const submenu = item.querySelector('ul');
+      if (submenu) {
+        e.stopPropagation();
+        e.preventDefault();
+        item.classList.toggle(this.classes.activeItem);
+        submenu.classList.toggle(this.classes.openSubmenu);
+      }
     });
+  });
 
-    $(document).on("click", ".closeSearch", function (event) {
-        event.preventDefault();
-        $("#search").val("");
-        $("div.search").css("top", "-100px");
-    });
-
-    $(window).on("load resize", function () {
-        if (typeof sliderInteriors === "function") {
-            sliderInteriors();
-        }
-    });
-
-   // console.log(":jfowf");
-});
+  this.pageOverlay.addEventListener('click', () => {
+    this.closeMenu(true);
+  });
+}

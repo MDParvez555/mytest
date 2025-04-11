@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preload" href="neutra-text-bold-5871e1605afa2.woff" as="style" media="all" />
+    <link rel="preload" href="neutra-text-tf-5871e0b0704ed.woff" as="style" media="all" />
+    <link rel="preload" href="JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="style" media="all" />
+
+    <style>
+        @font-face {
+            font-family:'NeutraText-Bold';
+            src: url(neutra-text-bold-5871e1605afa2.woff) format(woff);
+        }
+        @font-face {
+            font-family:'NeutraTextTF-Book';
+            src: url(neutra-text-tf-5871e0b0704ed.woff) format(woff);
+        }
+        body {
+            font-size: 100%;
+            color: #ffffff;
+            background-color: #3f3f3f;
+            font-family: "Montserrat", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        body {
+            background-color: #eee;
+            font-family: 'NeutraText-Bold';
+        }
+
+        @media screen and (min-width: 45em) {
+            .container {
+                font-size: 18px;
+            }
+        }
+
+        .container {
+            line-height: 1;
+            font-size: 16px;
+            min-width: 320px;
+            line-height: 1.625em;
+            overflow: hidden;
+        }
+
+        header {
+            display: block;
+            unicode-bidi: isolate;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        ol,
+        ul {
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        .nav-active .main-navigation {
+            transform: translatey(0);
+        }
+
+        .masthead {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-width: 320px;
+            z-index: 999;
+            background-color: #ffffff;
+            transition: transform 0.25s ease;
+        }
+
+        .csw-nav {}
+
+
+        .csw-logo {
+            display: block;
+            width: 112px;
+            padding: 10px 0;
+        }
+
+        @media screen and (min-width: 48em) {
+            .csw-logo {
+                width: 180px;
+                padding: 7px 0;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .csw-logo {}
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .csw-logo img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        button {
+            background: none;
+            border: 0 none;
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            outline: 0 none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            color: #3f3f3f;
+            font-size: 100%;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .menu-control {
+            display: block;
+            background-color: #5a5955;
+            color: #ffffff;
+            text-transform: uppercase;
+            display: block;
+            font-family: 'NeutraText-Bold';
+            letter-spacing: 2px;
+            font-size: 1em;
+            line-height: 1em;
+            padding: 12px 20px;
+            text-align: center;
+        }
+
+        .menu-control.menu-open {
+            margin: 0 0 0 auto;
+        }
+
+
+
+
+        .menu-control.menu-close {
+            position: absolute;
+            top: 20px;
+            right: 8px;
+            background-color: #3f3f3f;
+        }
+
+        @media screen and (min-width: 40em) {
+            .menu-control.menu-close {
+                right: 26px;
+            }
+        }
+
+
+        @media screen and (min-width: 48em) {
+            .menu-control.menu-close {
+                top: 34px;
+                right: 25px;
+            }
+        }
+
+        .menu-control.menu-close .menu-label:after {
+            content: 'x';
+            display: inline-block;
+            margin-left: 8px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+        }
+
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+
+        .main-navigation .menu {}
+
+        .main-navigation .menu-item {}
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        .main-navigation a {
+            display: inline-block;
+            color: #ffffff;
+            transition: all 0.25s ease-in;
+        }
+
+
+        .csw-inventory,
+        .main-navigation .menu>.menu-item>a {
+            text-transform: uppercase;
+            line-height: 1em;
+            padding: 20px 0;
+            display: inline-block;
+            vertical-align: middle;
+            font-family: 'NeutraText-Bold';
+            letter-spacing: 2px;
+            font-size: 1.5em;
+        }
+
+
+
+        @media screen and (min-width: 45em) {
+            .csw-inventory {
+                margin-left: 40px;
+            }
+        }
+
+        .csw-inventory {
+            margin-left: 30px;
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .csw-inventory,
+            .main-navigation .menu>.menu-item>a {
+                font-size: 1em;
+            }
+        }
+
+        .sub-control {
+            display: inline-block;
+            vertical-align: middle;
+            width: 44px;
+            height: 1.5em;
+            padding: 0;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s ease-in;
+            box-sizing: content-box;
+        }
+
+
+        .main-navigation .sub-menu {
+            display: none;
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .sub-menu {
+                display: block;
+                margin: -10px 0 0;
+                padding: 0 0 8px;
+                position: absolute;
+                left: -20px;
+                right: -20px;
+                text-align: left;
+                min-width: 100%;
+                width: auto;
+                background-color: #ffffff;
+                transform: scaley(0);
+                transform-origin: right top;
+                transition: transform 0.3s ease;
+            }
+        }
+
+
+        .main-navigation .sub-menu .menu-item {
+            margin-bottom: 10px;
+        }
+
+
+        .wrapper:after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+
+
+
+
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section,
+        main {
+            display: block;
+        }
+
+        .main-navigation {
+            z-index: 100;
+            position: fixed;
+            padding-top: 100px;
+            padding-bottom: 20px;
+            height: 100%;
+            width: 100%;
+            min-width: 320px;
+            top: 0;
+            right: 0;
+            overflow: auto;
+            overflow-x: hidden;
+            background-color: #3f3f3f;
+            color: #ffffff;
+            transform: translatey(-100%);
+            transition: transform 0.5s cubic-bezier(0.33, 0, 0.2, 1);
+        }
+
+        @media screen and (min-width: 30em) {
+            .main-navigation {
+                width: 400px;
+                padding-top: 140px;
+            }
+        }
+
+        @media screen and (min-width: 45em) {
+            .main-navigation {
+                width: 480px;
+            }
+        }
+
+
+
+        .wrapper {
+            padding: 0 20px;
+            margin: 0 auto;
+            display: block;
+            max-width: 1320px;
+        }
+
+        @media screen and (min-width: 40em) {
+            .wrapper {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .wrapper {}
+        }
+
+        .csw-nav>.wrapper,
+        .orlop>.wrapper {
+            max-width: 1440px;
+        }
+
+        .csw-nav>.wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 64em) {
+            .csw-nav>.wrapper {
+                margin: 0 -20px;
+            }
+        }
+
+        @media screen and (min-width: 70em) {
+            .csw-nav>.wrapper {
+                margin: 0 auto;
+            }
+        }
+
+
+
+
+
+
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .menu-main-navigation {
+                display: inline-block;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .menu-item {
+                display: inline-block;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .menu-item-has-children {
+                position: relative;
+            }
+        }
+
+        .main-navigation .menu>.menu-item {
+            padding: 0 30px;
+        }
+
+        @media screen and (min-width: 45em) {
+            .main-navigation .menu>.menu-item {
+                padding: 0 40px;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .menu>.menu-item {
+                padding: 0;
+                margin: 6px 16px 0 0;
+                border: 0 none;
+            }
+        }
+
+        @media screen and (min-width: 70em) {
+            .main-navigation .menu>.menu-item {
+                margin-right: 20px;
+            }
+        }
+
+        /* @media screen and (min-width: 70em) {
+    .main-navigation .menu > .menu-item {
+        margin-right: 20px;
+    }
+} */
+        @media screen and (min-width: 75em) {
+            .main-navigation .menu>.menu-item {
+                margin-right: 30px;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation a {
+                color: #5a5955;
+            }
+        }
+
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation .menu-item-has-children.sub-active .sub-control,
+            .main-navigation .menu-item-has-children:hover .sub-control {
+                transform: rotatex(180deg);
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .sub-control {
+                width: 21px;
+            }
+        }
+
+
+        .sub-active .sub-control {
+            transform: rotatex(180deg);
+            transition-timing-function: ease-out;
+        }
+
+
+        .sub-control:after {
+            content: '';
+            display: block;
+            height: 0;
+            width: 0;
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            left: 50%;
+            margin-left: -10px;
+        }
+
+
+        .sub-control:after {
+            margin-top: -4px;
+            border-top: 8px solid #ffffff;
+            z-index: 1;
+        }
+
+        @media screen and (min-width: 64em) {
+            .sub-control:after {
+                border-top: 8px solid #5a5955;
+                right: 0;
+                left: auto;
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation .menu-item-has-children.sub-active .sub-menu,
+            .main-navigation .menu-item-has-children:hover .sub-menu {
+                transform: scaley(1);
+            }
+        }
+
+        .main-navigation .sub-menu .menu-item a {
+            font-family: 'NeutraTextTF-Book';
+            letter-spacing: 2px;
+            font-size: 1.25em;
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .sub-menu .menu-item a {
+                display: block;
+                padding: 10px 20px 6px;
+                font-family: 'NeutraText-Bold';
+                font-size: 1em;
+                line-height: 1.25em;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation .sub-menu .menu-item {
+                display: block;
+                margin: 0;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .menu-control {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation .menu-item-has-children.sub-active .sub-control,
+            .main-navigation .menu-item-has-children:hover .sub-control {
+                transform: rotatex(180deg);
+            }
+        }
+
+        .sub-active .sub-control {
+            transform: rotatex(180deg);
+            transition-timing-function: ease-out;
+        }
+
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation,
+            .nav-active .main-navigation {
+                transform: translatey(0);
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .main-navigation {
+                padding: 0 0 0 12px;
+                width: auto;
+                width: calc(100% - 180px);
+                height: auto;
+                position: static;
+                background: #ffffff;
+                color: #5a5955;
+                overflow: visible;
+                text-align: center;
+                font-size: 0.95em;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+            .csw-inventory {
+                display: inline-block;
+                background-color: #5a5955;
+                text-transform: uppercase;
+                line-height: 1em;
+                padding: 24px 12px;
+                text-align: center;
+                margin: 0;
+                float: right;
+            }
+        }
+
+        @media screen and (min-width: 65em) {
+            .csw-inventory {
+                padding: 24px;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation a.csw-inventory:hover,
+            .csw-inventory:hover {
+                background-color: #eb6848;
+            }
+        }
+
+        .notransition * {
+            transition: none !important;
+        }
+
+        .main-navigation a:hover {
+            text-decoration: none;
+            color: #eb6848;
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation .current_page_parent a,
+            .main-navigation .current-menu-item a,
+            .main-navigation .current-menu-ancestor>a,
+            .main-navigation a:hover {
+                color: #eb6848;
+            }
+        }
+
+        @media screen and (min-width: 64em) {
+
+            .main-navigation a.csw-inventory,
+            .csw-inventory {
+                color: #ffffff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="masthead">
+            <div class="csw-nav">
+                <div class="wrapper">
+                    <a class="csw-logo" href="https://carthagestoneworks.com">
+                        <img alt="Carthage Stoneworks"
+                            src="https://carthagestoneworks.com/wp-content/themes/carthagestoneworks/images/logo2x.png"
+                            width="360" height="192">
+                    </a>
+
+                    <!-- <button class="menu-control menu-open" type="button">
+                        <span class="menu-label">Menu</span>
+                    </button> -->
+                    <nav class="main-navigation">
+                        <button class="menu-control menu-close" type="button">
+                            <span class="menu-label">Close</span>
+                        </button>
+                        <ul id="menu-main-navigation" class="menu menu-main-navigation">
+                            <li id="menu-item-58"  class="menu-item menu-item-type-post_type_archive menu-item-object-csw_portfolio menu-item-has-children menu-item-58">
+                                <a href="https://carthagestoneworks.com/portfolio/">Portfolio</a>
+                                <!-- <span class="sub-control" role="button" tabindex="0"></span> -->
+                                <ul class="sub-menu">
+                                    <li id="menu-item-60"
+                                        class="menu-item menu-item-type-taxonomy menu-item-object-csw_portfolio_category menu-item-60">
+                                        <a
+                                            href="https://carthagestoneworks.com/portfolio-category/residential/">Residential</a>
+                                    </li>
+                                    <li id="menu-item-59"
+                                        class="menu-item menu-item-type-taxonomy menu-item-object-csw_portfolio_category menu-item-59">
+                                        <a
+                                            href="https://carthagestoneworks.com/portfolio-category/commercial/">Commercial</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-49"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-49">
+                                <a href="https://carthagestoneworks.com/services/">Services</a>
+                                <!-- <span class="sub-control" role="button" tabindex="0"></span> -->
+                                <ul class="sub-menu">
+                                    <li id="menu-item-110"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-110"><a
+                                            href="/services/#design">Design</a></li>
+                                    <li id="menu-item-111"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-111"><a
+                                            href="/services/#fabrication">Fabrication</a></li>
+                                    <li id="menu-item-112"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-112"><a
+                                            href="/services/#installation">Installation</a></li>
+                                    <li id="menu-item-113"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-113"><a
+                                            href="/services/#maintenance">Maintenance</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-48"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-48">
+                                <a href="https://carthagestoneworks.com/stone-care/">Stone Care</a>
+                                <!-- <span class="sub-control" role="button" tabindex="0"></span> -->
+                                <ul class="sub-menu">
+                                    <li id="menu-item-189"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-189"><a
+                                            href="/stone-care/#carecleaning">Care &amp; Cleaning</a></li>
+                                    <li id="menu-item-190"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-190"><a
+                                            href="/stone-care/#warranties">Warranties</a></li>
+                                    <li id="menu-item-191"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-191"><a
+                                            href="/stone-care/#thecarthageguarantee">The Carthage Guarantee</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-item-50"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a
+                                    href="https://carthagestoneworks.com/about/">About</a></li>
+                            <li id="menu-item-22"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a
+                                    href="https://carthagestoneworks.com/contact/">Contact</a></li>
+                        </ul> <a class="csw-inventory" target="_blank" href="https://carthage.stoneprofitsweb.com/">Our
+                            Inventory</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+    </div>
+    <script>
+        (function ($) {
+            var resizeId;
+            $(window).resize(function () {
+                stopTransition();
+            });
+
+            function stopTransition() {
+                $('.container').addClass('notransition');
+                clearTimeout(resizeId);
+                resizeId = setTimeout(doneResizing, 500);
+            }
+
+            function doneResizing() {
+                offsetCalc();
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                smoothScroll();
+                offsetCalc();
+                scrollTopCheck();
+            });
+
+            /*smooth scroll*/
+            function smoothScroll() {
+                $('a[href*="#"]:not([href="#"])').click(function () {
+                    if ($('.menu-button').css('display') == 'block')
+                        var fixedOffset = $("nav.main-navigation").height();
+                    else
+                        var fixedOffset = $("header.masthead").height();
+
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname && !$(this).hasClass('no-scroll')) {
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top - fixedOffset
+                            }, 800);
+                            return false;
+                        }
+                    }
+                });
+            }
+
+            /*controls*/
+            $(document).ready(function () {
+                /*menu*/
+                var menubutton = '<button class="menu-control menu-open" type="button"><span class="menu-label">Menu</span></button>';
+                $('.main-navigation').before(menubutton);
+
+                var closebutton = '<button class="menu-control menu-close" type="button"><span class="menu-label">Close</span></button>';
+                $('.main-navigation').prepend(closebutton);
+
+                $('.menu-control.menu-open').on('click', function () {
+                    $('.container').addClass('nav-active');
+                    $('body').addClass('overlay-open');
+                });
+                $('.menu-control.menu-close').on('click', function () {
+                    $('.container').removeClass('nav-active');
+                    $('body').removeClass('overlay-open');
+                });
+
+                $('.menu-item-holder > a').on('click', function (e) {
+                    e.preventDefault();
+                });
+                $('.main, .main-navigation .menu > .menu-item > a').on('click', function () {
+                    if (($('.menu-control').css('display') == 'block') && ($('.container').hasClass('nav-active')) && (!$(this).parent().hasClass('menu-item-has-children'))) {
+                        $('.container').removeClass('nav-active');
+                        $('body').removeClass('overlay-open');
+                    }
+                });
+
+                /*submenu*/
+                /*$('.main-navigation .menu-item-has-children > a').on('click', function(e){
+                    if($('.menu-control').css('display') == 'block') {
+                        e.preventDefault();
+                        $(this).siblings('.sub-menu').slideToggle();
+                        $(this).parent().toggleClass('sub-active');
+                    }
+                });*/
+                $(".main-navigation .menu > .menu-item-has-children > a").each(function () {
+                    $(this).after('<span class="sub-control" role="button" tabindex="0"></span>');
+                });
+                $('.main-navigation .sub-control, .main-navigation .menu > .menu-item-has-children > a[href^="#"]').on('click', function (e) {
+                    e.preventDefault();
+
+                    if (($('.menu-control').css('display') == 'none')) {
+                        if ($(this).parent().hasClass('sub-active')) {
+                            $(this).parent().removeClass('sub-active');
+                        } else {
+                            $('.sub-active').removeClass('sub-active');
+                            $(this).parent().addClass('sub-active');
+                        }
+                    } else {
+                        $(this).siblings('.sub-menu').slideToggle();
+                        $(this).parent().toggleClass('sub-active');
+                    }
+                });
+
+                /*faq*/
+                $(".csw-accordion .csw-faq-question").on('click', function () {
+                    $(this).toggleClass('csw-faq-active');
+                    $(this).siblings('.csw-faq-answer').slideToggle();
+                });
+
+                /*resizer*/
+                $('.csw-resizer-button').on('click', function (e) {
+                    e.preventDefault();
+                    var fontsize = parseInt($('.container').css('font-size'));
+
+                    if ($(this).hasClass('csw-resizer-inc') && (fontsize < 30)) {
+                        $('.container').css('font-size', "+=2");
+                    } else if ($(this).hasClass('csw-resizer-dec') && (fontsize > 12)) {
+                        $('.container').css('font-size', "-=2");
+                    }
+                });
+
+                /*event rsvp
+                $( ".single-tribe_events .tribe-events-single-event-description.tribe-events-content" ).each(function() {
+                    $(this).append('<p><a class="csw-btn" href="#rsvp"><span>RSVP</span></a></p>');
+                });*/
+
+                /*popups*/
+                $('.popup-video, .popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+                    type: 'iframe',
+                    mainClass: 'mfp-fade',
+                    removalDelay: 160,
+                    preloader: false,
+                    fixedContentPos: false
+                });
+                $('.csw-gallery-grid').magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery: {
+                        enabled: true
+                    }
+                });
+            });
+
+            $(window).load(function () {
+                /*sliders*/
+                $('.csw-slider.slickslider').slick({
+                    centerMode: false,
+                    variableWidth: false,
+                    arrows: true,
+                    centerPadding: '20px',
+                    slidesToShow: 3,
+                    responsive: [
+                        {
+                            breakpoint: 1200,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+
+                                slidesToShow: 1
+                            }
+                        }
+                    ]
+                });
+                /*$( '.csw-slider .slickslider' ).slick( {
+                    arrows: true,
+                    dots:   false
+                } );*/
+            });
+
+
+            var didScroll;
+            var delta = 50;
+            var navbarHeight = $('header.masthead').outerHeight();
+            var lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            $(window).scroll(function (event) {
+                didScroll = true;
+            });
+            setInterval(function () {
+                if (didScroll) {
+                    scrollTopCheck();
+                    didScroll = false;
+                }
+            }, 100);
+
+            function scrollTopCheck() {
+                if ($('.masthead').length > 0) {
+                    var st = $(this).scrollTop();
+
+                    if ((st == 0) && $(".container").hasClass("not-top")) {
+                        $(".container").removeClass("not-top");
+                    } else if ((st != 0) && !$(".container").hasClass("not-top")) {
+                        $(".container").addClass("not-top");
+                    }
+
+                    if (Math.abs(lastScrollTop - st) <= delta) {
+                        return;
+                    }
+
+                    if (st > lastScrollTop && st > navbarHeight) {
+                        // Scroll Down
+                        $('.container').removeClass('scrolling-up').addClass('scrolling-down');
+                    } else {
+                        // Scroll Up
+                        if (st + $(window).height() < $(document).height()) {
+                            $('.container').removeClass('scrolling-down').addClass('scrolling-up');
+                        }
+                    }
+
+                    lastScrollTop = st;
+                }
+            }
+
+            function offsetCalc() {
+                $('.container').addClass('notransition');
+
+                var totalHeight = $('.masthead').height();
+
+                $('.main, .tribe-events-view, .tribe-events-pg-template').css('padding-top', totalHeight + 'px');
+
+                timeoutID = window.setTimeout(function () {
+                    $('.container').removeClass('notransition');
+                }, 500);
+            }
+
+            function doAnimation(selector, action, distance, cb) {
+                $(selector).each(function () {
+                    var pos = $(this).offset().top;
+                    var topOfWindow = $(window).scrollTop();
+                    if (pos < topOfWindow + distance) {
+                        if (!$(this).hasClass(action)) {
+                            $(this).trigger(action);
+                        }
+                        $(this).addClass(action);
+
+                        if (typeof cb !== 'undefined') {
+                            cb(selector);
+                        }
+                    }
+                    /*also check from bottom*/
+                    else if (($(window).scrollTop() + $(window).height() + distance) >= $(document).height()) {
+                        $(this).addClass(action);
+                    }
+                });
+            }
+        })(jQuery);
+    </script>
+</body>
+
+</html>

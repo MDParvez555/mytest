@@ -1,0 +1,16 @@
+background-color: rgba(255, 255, 255, var(--alpha-brd));
+border: var(--brw) solid rgba(255, 255, 255, var(--alpha-brd));
+border-radius: 50%;
+box-shadow: var(--shd);
+display: block;
+overflow: hidden;
+
+.Logo {
+    max-width: 120px;
+    margin-top: 70px;
+    margin-bottom: 36px;
+}
+
+header{
+  border-bottom:4px solid #eee;
+}

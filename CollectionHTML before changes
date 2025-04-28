@@ -1,0 +1,91 @@
+<div id="SendingMail">
+	<div style="height: 100%; width:100%; position: fixed; z-index: 1; top: 0; left: 0; background-color: rgba(0,0,0,0.9); overflow-x: hidden; transition: 0.5s; text-align: center;">
+		<span style="position:relative; top:50%;"> <img style="-webkit-user-select: none;" src="image/loading.gif"> </span>
+	</div>	
+</div>	
+	<div class='col-xs-12'>
+				<div class='row'>
+						<div class='col-xs-12 col-sm-12 '>
+							<div class='CollectionFormBG'>
+								<div class='CollectionForm'>
+									<h1>Email <span Id='CollectionBtnText'></span>...</h1>
+									<p>Use this form to send emails of the inventory you have selected.</p>
+									<div class='row'>
+										<div class='col-sm-6'>
+												<label id="email1-label">Your Email</label><input id='txtEmail1' placeholder='Your Email ID' type='email' />
+												<label id="email2-label">Recipient 2</label><input id='txtEmail2' (focus)="ValidateFirstEmail()" placeholder='Recipient-2 Email ID' type='email' />
+										</div>
+										<div class='col-sm-6'>
+												<label id="message-label">Message</label><textarea maxlength="1000" size="1000" (keyup)="toCount()" id='txtMessage' placeholder=''></textarea>
+												<label id='remainingChars'></label>
+										</div>
+									</div>
+									<div class='CenterButton'><button (click)="sendMail()">Send Email</button></div>
+								</div>
+							</div>
+						</div>
+				</div>
+				<div class='row' id='ItemGallery'>
+						<!--Item Loop starts Here-->
+						<div *ngFor="#SelectedItem of ItemsInCollection; #i=index">
+						<div class='col-xs-12 col-sm-6 '>
+							<div class='CollectionPage ImgWrap'>	
+								<div class='IconLayer'>
+									<div id='RemoveFromCollection_{{i}}' (click)='RemoveFromCollection(SelectedItem)' hidden></div>
+									<div id='popup_{{i}}' hidden>
+										<ul class='LBInfo'>
+											<li>{{SelectedItem.ItemName}}</li>
+											<li *ngIf="SelectedItem.IDOne !== Null && SelectedItem.IDOne !== '' && SelectedItem.IDOne !== ' '">{{ WCSettings[0]["IDOneLable"] }}: {{SelectedItem.IDOne}}</li>
+											<li *ngIf="SelectedItem.IDTwo != Null && SelectedItem.IDTwo != '' && SelectedItem.IDTwo !== ' '">{{ WCSettings[0]["IDTwoLable"] }}: {{SelectedItem.IDTwo}}</li>
+											<li *ngIf="SelectedItem.IDThree != Null && SelectedItem.IDThree != '' && SelectedItem.IDThree != ' '">{{ WCSettings[0]["IDThreeLable"] }}: {{SelectedItem.IDThree}}</li>
+											<li *ngIf="SelectedItem.SerialPrefix != Null && SelectedItem.SerialPrefix != '' && SelectedItem.SerialPrefix != ' '">{{ WCSettings[0]["SerialPrefixLable"] }}: {{SelectedItem.SerialPrefix}}</li>
+											<!--<li *ngIf="SelectedItem.AverageLength !== 0 || SelectedItem.AverageWidth !== 0">Avg Size: {{SelectedItem.AverageLength}}" X {{SelectedItem.AverageWidth}}"</li>	-->								
+											<li *ngIf="SelectedItem.AvailableSlabs > 1">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0" style="font-weight: normal">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM}} / </span>{{SelectedItem.AvailableSlabs}} {{SelectedItem.type}}s</li>
+											<li *ngIf="SelectedItem.AvailableSlabs == 1">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0" style="font-weight: normal">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM}} / </span>{{SelectedItem.AvailableSlabs}} {{SelectedItem.type}}</li>
+											<li *ngIf="SelectedItem.Location != Null && SelectedItem.Location != '' && WCSettings[0].ShowLocationinGallery == 'on'">Location: {{SelectedItem.Location}}</li>
+										</ul>
+									</div>
+									<a href="{{WCSettings[0].SecureFilePath}}{{SelectedItem.Filename}}?width=1500" class='Gallery' rel='Inventory' title='View Large' attr.data-sub-html="<div class='CenterCaption'><div id='iteminfo_{{i}}'></div><div class='LBForm'><button onclick='RemoveFromCollection()'>Remove From <span Id='CollectionBtnText'></span></button></div></div><script>document.getElementById('iteminfo_{{i}}').innerHTML = document.getElementById('popup_{{i}}').innerHTML; 								function RemoveFromCollection(){
+									document.getElementById('RemoveFromCollection_{{i}}').click(); 
+									document.getElementsByClassName('lg-close')[0].click();
+								}</script>">
+										<div class='IconBG'>
+											<div class='icon-enlarge2' (click)="showGallery()"></div>
+										</div>
+									</a>
+                                </div>
+								<a>
+									<img *ngIf="SelectedItem.Filename != '' && WCSettings[0].ShowSlabSmithImagesinDetail !='on'" src='{{WCSettings[0].SecureFilePath}}{{SelectedItem.Filename}}' alt='{{SelectedItem.ItemName}}'  />
+									<img *ngIf="SelectedItem.Filename != '' && WCSettings[0].ShowSlabSmithImagesinDetail =='on'" src='{{WCSettings[0].SlabSmithFilePath}}{{SelectedItem.Filename}}{{WCSettings[0].SlabSmithDefaultImageName}}' alt='{{SelectedItem.ItemName}}'  />
+									<div *ngIf="SelectedItem.Filename === '' " class="NoImg">
+										<div class="NoImgText"></div>
+									</div>
+								</a>
+							</div>
+							<div class='CollectionPage InvItem ItemLabel'> 
+								<p class='ItemInfo'>{{SelectedItem.ItemName}}</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.IDOne !== Null && SelectedItem.IDOne !== '' && SelectedItem.IDOne !== ' '"><span>{{ WCSettings[0]["IDOneLable"] }}:</span>{{SelectedItem.IDOne}}</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.IDTwo != Null && SelectedItem.IDTwo != '' && SelectedItem.IDTwo !== ' '"><span>{{ WCSettings[0]["IDTwoLable"] }}:</span>{{SelectedItem.IDTwo}}</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.IDThree != Null && SelectedItem.IDThree != '' && SelectedItem.IDThree != ' '"><span>{{ WCSettings[0]["IDThreeLable"] }}:</span>{{SelectedItem.IDThree}}</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.SerialPrefix != Null && SelectedItem.SerialPrefix != '' && SelectedItem.SerialPrefix != ' '"><span>{{ WCSettings[0]["SerialPrefixLable"] }}:</span>{{SelectedItem.SerialPrefix}}</p>
+								<!--<p class='ItemInfo' *ngIf="SelectedItem.AverageLength !== 0 || SelectedItem.AverageWidth !== 0"><span>Avg Size:</span>{{SelectedItem.AverageLength}}" X {{SelectedItem.AverageWidth}}"</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs > 1"><span>Qty:</span><span *ngIf="SelectedItem.AvailableQty !== 0" style="font-weight: normal">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM}} / </span>{{SelectedItem.AvailableSlabs}} {{SelectedItem.type}}s</p>
+								<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs == 1"><span>Qty:</span><span *ngIf="SelectedItem.AvailableQty !== 0" style="font-weight: normal">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM}} / </span>{{SelectedItem.AvailableSlabs}} {{SelectedItem.type}}</p>-->
+								<p class='ItemInfo' *ngIf="SelectedItem.Remnant == 'on' && SelectedItem.BarcodeID !== ''" >BarcodeID: <span>{{SelectedItem.BarcodeID}}</span></p>
+									<p class='ItemInfo' *ngIf="SelectedItem.AverageLength !== 0 && SelectedItem.AverageWidth !== 0 && WCSettings[0].ShowAvgSizeinDetail === 'on'"><span  *ngIf="SelectedItem.Remnant == '' || SelectedItem.Remnant == Null" style="font-weight: normal;">Avg</span> Size: <span>{{SelectedItem.AverageLength}}{{SelectedItem.LengthUnitsSymbol}} X {{SelectedItem.AverageWidth}}{{SelectedItem.LengthUnitsSymbol}}</span><span *ngIf="SelectedItem.Remnant == 'on' && SelectedItem.Remnantlength !=='' && SelectedItem.RemnantShape !== 'Rectangle'">,{{SelectedItem.Remnantlength}}{{SelectedItem.LengthUnitsSymbol}} X {{SelectedItem.RemnantWidth}}{{SelectedItem.LengthUnitsSymbol}}</span></p>
+
+								<p class='ItemInfo' *ngIf="SelectedItem.Remnant == 'on' && SelectedItem.RemnantShape !== ''" >Remnant shape:  <span>{{SelectedItem.RemnantShape}}</span></p>
+									<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs > 1 && WCSettings[0].ShowQuantityinDetail === 'on'  && SelectedItem.Remnant == 'on'">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM | uppercase}} / {{SelectedItem.AvailableSlabs}} Remnants</span></p>
+									<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs == 1 && WCSettings[0].ShowQuantityinDetail === 'on'  && SelectedItem.Remnant == 'on'">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM | uppercase}} / {{SelectedItem.AvailableSlabs}} Remnant</span></p>
+									<!-- End for remnants-->
+									<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs > 1 && WCSettings[0].ShowQuantityinDetail === 'on' && (SelectedItem.Remnant == '' || SelectedItem.Remnant == Null) ">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM | uppercase}} / {{SelectedItem.AvailableSlabs}} {{SelectedItem.type | uppercase}}S</span></p><!--For non slab Alternate Unit of measure should been shown if availible-->
+									<p class='ItemInfo' *ngIf="SelectedItem.AvailableSlabs == 1 && WCSettings[0].ShowQuantityinDetail === 'on' && (SelectedItem.Remnant == '' || SelectedItem.Remnant == Null) ">Qty: <span *ngIf="SelectedItem.AvailableQty !== 0">{{SelectedItem.AvailableQty}} {{SelectedItem.UOM | uppercase}} / {{SelectedItem.AvailableSlabs}} {{SelectedItem.type | uppercase}}</span></p>
+								<p class='ItemInfo' *ngIf="SelectedItem.Location != Null && SelectedItem.Location != '' && WCSettings[0].ShowLocationinGallery == 'on'">Location: <span>{{SelectedItem.Location}}</span></p>
+								<div class='clearfix'></div>
+								<button (click)="RemoveFromCollection(SelectedItem)" class='Remove'><span class='icon-plusthin'></span>&nbsp;<span Id='CollectionBtnText'></span></button>
+							</div>
+						</div>
+						<div *ngIf="i%2 === 1" class='clearfix'></div>
+						</div>
+            </div>
+            </div>

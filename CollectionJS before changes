@@ -1,0 +1,305 @@
+System.register(['angular2/core', 'angular2/http', 'angular2/router'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
+    var core_1, http_1, router_1;
+    var CollectionComponent;
+    return {
+        setters:[
+            function (core_1_1) {
+                core_1 = core_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            }],
+        execute: function() {
+            CollectionComponent = (function () {
+                function CollectionComponent(_http, _router, elementRef) {
+					console.log("loaded ");
+                    this._http = _http;
+                    this._router = _router;
+					this.setCookie();
+					//this.setLocalStorage();
+					this.UserID = DB.getItem("UserID");                    
+                    //this.TrimmedUserID = this.UserID.slice(2, this.UserID.length);
+                    this.TrimmedUserID = this.UserID.slice(2, this.UserID.length);
+                    this.elementRef = elementRef;
+                }
+                 
+    var headers = new http_1.Headers({ 'Content-Type': 'application/json', "Authorization":SPSWebToken });
+    var options = new http_1.RequestOptions({ headers: headers });
+
+                CollectionComponent.prototype.ngOnInit = function () {
+                    //this.systemUrl = "https://"+ Token +".stoneprofits.com/api/fetchdataAngularProductionToyota.ashx";
+                    this.systemUrl = "https://stage.stoneprofits.com/"+ Token +"/development/api/fetchdata.ashx";
+                    document.getElementById('SendingMail').setAttribute("style", "display: none;");
+                    document.getElementById('goBackID').setAttribute("style", "display: block;");
+                    this.getSettings();
+                    document.getElementById('headerId').innerHTML = "My <span id='CollectionBtnText'></span>";
+                    this.gallery = null;
+
+					$("title").text("My Collection | "+Company+"");
+					$("meta[name='description']").attr("content", "View our wide selection of "+ Products +", and more at "+Company+"");
+					$("meta[name='og:title']").attr("content",""+Company+" "+ Products +", and More ");
+					$("meta[name='og:description']").attr("content", "View our wide selection of "+ Products +", and more at "+Company+"");
+					$("meta[name='og:url']").attr("content", ""+Domain+"");
+					$("meta[name='og:image']").attr("content", ""+ogImage+"");
+                };
+
+				CollectionComponent.prototype.setCookie = function () {
+                    for(var i=0, len=DB.length; i<len; i++) {
+						var key = DB.key(i);
+						var value = DB[key];
+						if(key != 'UserID' || this.getCookie(key) == "")
+						document.cookie = key + "=" + value + ";";
+					}
+                };
+
+				/*CollectionComponent.prototype.setLocalStorage = function () {
+					DB.clear();
+					var keyValuePairs = document.cookie.split(';');
+					console.log(keyValuePairs)
+
+					for(var i = 0; i < keyValuePairs.length; i++) {
+						var name = keyValuePairs[i].substring(0, keyValuePairs[i].indexOf('='));
+						var value = keyValuePairs[i].substring(keyValuePairs[i].indexOf('=')+1);
+						DB.setItem(name.replace(' ',''), value);
+
+					}
+				}*/
+
+				CollectionComponent.prototype.getCookie = function (cname){
+					var name = cname + "=";
+					var ca = document.cookie.split(';');
+					for(var i = 0; i < ca.length; i++) {
+						var c = ca[i];
+						while (c.charAt(0) == ' ') {
+							c = c.substring(1);
+						}
+						if (c.indexOf(name) == 0) {
+							return c.substring(name.length, c.length);
+						}
+					}
+					return "";
+				}
+				CollectionComponent.prototype.ngAfterContentChecked = function () {
+					var userAgent, ieReg, ie;
+					userAgent = window.navigator.userAgent;
+					ieReg = /msie|Trident.*rv[ :]*11\./gi;
+					ie = ieReg.test(userAgent);
+					if(ie) {						
+					  $(".ImgWrap").each(function () {
+						var $container = $(this),
+							imgUrl = $container.find("img").prop("src");
+						if (imgUrl) {
+						  $container.css("backgroundImage", 'url(' + imgUrl + ')').addClass("ms-object-fit");
+						}
+					  });
+					}
+				};
+                CollectionComponent.prototype.showGallery = function () {
+                    //if (this.counter) {
+                    if (this.gallery != null) {
+                        this.gallery.data('lightGallery').destroy(true);
+                    }
+                    this.gallery = jQuery(this.elementRef.nativeElement).find('#ItemGallery');
+                    this.gallery.lightGallery({ selector: '.Gallery', loop: false, download: false, mode: 'lg-slide', width: '1024px',thumbnail: false, hash: false, share: false, actualSize: false });
+                    //  this.counter = false;        
+                };
+                CollectionComponent.prototype.getSettings = function () {
+                    var _this = this;
+                    this._http.get(this.systemUrl + '?act=getSettings&WebconnectSettingID='+ WebconnectSettingID +'&q=' + new Date().getTime() , options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return _this.WCSettings = data; }, function (err) { return _this.logError(err); }, function () { return _this.getItemsInCollection(_this.TrimmedUserID); });
+                };
+                CollectionComponent.prototype.getItemsInCollection = function (TrimmedUserID) {
+                    var _this = this;
+					var showLocation = '';
+					if(this.WCSettings[0]["ShowLocationinGallery"] == 'on')
+					showLocation = 'on';
+                    document.getElementById('myNav').setAttribute("style", "display: none;");
+                    this._http.get(this.systemUrl + '?act=getItemsInCollection&InventoryGroupBy=' + this.WCSettings[0]["GroupInventoryBy"].replace(/,/g, '_') + '&TrimmedUserID=' + TrimmedUserID +'&showLocation='+ showLocation +'&q=' + new Date().getTime() , options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return _this.ItemsInCollection = data; }, function (err) { return _this.logError(err); }, function () { return _this.getCompanyInfo(); });
+                };
+                CollectionComponent.prototype.getCompanyInfo = function () {
+                    var _this = this;
+                    this._http.get(this.systemUrl + '?act=getCompanyInfo' +'&q=' + new Date().getTime() , options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return _this.CompanyInfo = data; }, function (err) { return _this.logError(err); }, function () { return _this.getCartCountOnly(_this.TrimmedUserID); });
+                };
+                CollectionComponent.prototype.logError = function (err) {
+                    console.error("There was an error:" + err);
+                };
+                CollectionComponent.prototype.RemoveFromCollection = function (Inventory) {
+                    var _this = this;
+                    this._http.get(this.systemUrl + '?act=RemoveFromWebCart&WebCartID=' + Inventory.WebCartID , options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { return Inventory.WebCartID = 0; }, function (err) { return _this.logError(err); }, function () { return _this.getCartCount(_this.TrimmedUserID); });
+                };
+                CollectionComponent.prototype.getCartCount = function (Uid) {
+                    var _this = this;
+                    this._http.get(this.systemUrl + '?act=getCartCount&Uid=' + Uid +'&q=' + new Date().getTime() , options)
+                        .map(function (res) { return res.json(); }) 
+                        .subscribe(function (data) { return _this.CartCount = data; }, function (err) { return _this.logError(err); }, function () { return _this.gotoCollection(); });
+                };
+				CollectionComponent.prototype.getCartCountOnly = function (Uid) {
+                    var _this = this;
+                    this._http.get(this.systemUrl + '?act=getCartCount&Uid=' + Uid +'&q=' + new Date().getTime() , options)
+                        .map(function (res) { return res.json(); })
+                        .subscribe(function (data) { _this.CartCount = data; document.getElementById('countId').innerHTML = _this.CartCount[0].Count; }, function (err) { return _this.logError(err); }, function () { console.log(_this.CartCount[0].Count)});
+                };
+                CollectionComponent.prototype.gotoCollection = function () {
+                    document.getElementById('countId').innerHTML = this.CartCount[0].Count;
+                    if (document.getElementById('countId').innerHTML == '0') {
+                        location.href = location.href.split('Collection')[0];
+                    }
+                    else {
+                        this.ngOnInit();
+                        this.showGallery();
+                    }
+                };
+                CollectionComponent.prototype.goToHome = function () {
+                    document.getElementById('SendingMail').setAttribute("style", "display: none;");
+                    alert("Email sent successfully");
+                    DB.setItem('UserID', (Math.random()).toString());
+                    var url = location.href;
+                    var to = url.lastIndexOf('/');
+                    to = to == -1 ? url.length : to + 1;
+                    url = url.substring(0, to);
+                    location.href = url;
+                };
+                CollectionComponent.prototype.ValidateFirstEmail = function () {
+                    if (document.getElementById('txtEmail1').value) {
+                        var x = document.getElementById('txtEmail1').value;
+                        var atpos = x.indexOf('@');
+                        var dotpos = x.lastIndexOf('.');
+                        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
+                            alert('Not a valid e-mail address');
+                            document.getElementById('txtEmail1').focus();
+                        }
+                    }
+                    else {
+                        alert('Enter Recipient-1 Email ID');
+                        document.getElementById('txtEmail1').focus();
+                    }
+                };
+                CollectionComponent.prototype.toCount = function () {
+                    var entranceObj = document.getElementById('txtMessage');
+                    var exitObj = document.getElementById('remainingChars');
+                    var characters = 1000;
+                    var length = characters - entranceObj.value.length;
+                    if (length <= 0) {
+                        length = 0;
+                        entranceObj.value = entranceObj.value.substr(0, characters);
+                    }
+                    exitObj.innerHTML = "Characters Remaining: " + length.toString();
+                };
+                CollectionComponent.prototype.sendMail = function () {
+                    var _this = this;
+                    var HomeLocation;
+					var DistinctIDs = [...new Set(_this.ItemsInCollection.map(x => x.LocationID ))];
+					var LocIDs =  DistinctIDs.toString();
+                    HomeLocation = location.href.split('Collection')[0];
+                    var EmailID;
+                    var Message;
+                    if ("" + document.getElementById('txtEmail1').value != "" && "" + document.getElementById('txtEmail2').value != "") {
+                        EmailID = "" + document.getElementById('txtEmail1').value + ", " + document.getElementById('txtEmail2').value + ",";
+                    }
+                    else if ("" + document.getElementById('txtEmail1').value != "") {
+                        EmailID = "" + document.getElementById('txtEmail1').value + ",";
+                    }
+                    else if ("" + document.getElementById('txtEmail2').value != "") {
+                        EmailID = "" + document.getElementById('txtEmail2').value + ",";
+                    }
+                    Message = "" + document.getElementById('txtMessage').value;
+					Message = Message.split("\n").join("<br />");
+
+				    Message = Message.replaceAll("'", '')
+
+                    // Sanitize the message
+                    //  Message = encodeURIComponent(Message.replaceAll("'", '').replace(/[^a-zA-Z0-9 \-_=.,@/()*?\n&]/g, ' ').split(/\n/).map(line => line.split(' ').filter(word => !['update', 'insert', 'delete', 'alter', 'drop', 'grant', 'revoke', 'truncate', 'rename', 'commit', 'rollback', 'savepoint', 'sys', 'exec', 'htaccess', 'script', 'iframe', 'alert', 'input', 'eval', 'document', 'write', '--'].includes(word.toLowerCase())).join(' ')).join('\n'));
+
+                    
+
+                    if (EmailID == undefined) {
+                        alert("Please provide atleast one Email Id to send an email.");
+                    }
+                    else {
+                        if (document.getElementById('txtEmail1').value) {
+                            var x1 = document.getElementById('txtEmail1').value;
+                            var atpos1 = x1.indexOf("@");
+                            var dotpos1 = x1.lastIndexOf(".");
+                            if (atpos1 < 1 || dotpos1 < atpos1 + 2 || dotpos1 + 2 >= x1.length) {
+                                alert("Not a valid e-mail address");
+								$("#txtEmail1").focus();
+                            }
+                            else {
+                                if (document.getElementById('txtEmail2').value) {
+                                    var x2 = document.getElementById('txtEmail2').value;
+                                    var atpos2 = x2.indexOf("@");
+                                    var dotpos2 = x2.lastIndexOf(".");
+                                    if (atpos2 < 1 || dotpos2 < atpos2 + 2 || dotpos2 + 2 >= x2.length) {
+                                        alert("Not a valid e-mail address");
+										$("#txtEmail1").focus();
+                                    }
+                                    else {
+                                        if (document.getElementById('countId').innerHTML != "0" && document.getElementById('countId').innerHTML != "") {
+                                            document.getElementById('SendingMail').setAttribute("style", "display: display;");
+                                            this._http.get(this.systemUrl + '?act=sendMail&InventoryGroupBy=' + this.WCSettings[0]["GroupInventoryBy"].replace(/,/g, '_') + '&HomeLocation=' + HomeLocation + '&IDOneLable=' + this.WCSettings[0]["IDOneLable"] + '&IDTwoLable=' + this.WCSettings[0]["IDTwoLable"] + '&IDThreeLable=' + this.WCSettings[0]["IDThreeLable"] + '&SerialPrefixLable=' + this.CompanyInfo[0]["SerialPrefixLable"] + '&CompanyTitle=' + this.CompanyInfo[0]["CompanyTitle"] + '&Address1=' + this.CompanyInfo[0]["Address1"] + '&Address2=' + this.CompanyInfo[0]["Address2"] + '&City=' + this.CompanyInfo[0]["City"] + '&State=' + this.CompanyInfo[0]["State"] + '&Zip=' + this.CompanyInfo[0]["Zip"] + '&Phone1=' + this.CompanyInfo[0]["Phone1"] + '&Fax=' + this.CompanyInfo[0]["Fax"] + '&TrimmedUserID=' + this.TrimmedUserID + '&EmailID=' + EmailID + '&Message=' + Message+ '&LocIDs='+LocIDs, options)
+                                                .map(function (res) { return res.json(); })
+                                                .subscribe(function (data) { return _this.MailData = data; }, function (err) { return _this.error(); }, function () { return _this.goToHome(); });
+                                        }
+                                        else {
+                                            alert("Please add atleast one material to the collection to send an email.");
+                                            document.getElementById('SendingMail').setAttribute("style", "display: none;");
+                                        }
+                                    }
+                                }
+                                else {
+                                    if (document.getElementById('countId').innerHTML != "0" && document.getElementById('countId').innerHTML != "") {
+                                        document.getElementById('SendingMail').setAttribute("style", "display: display;");
+                                        this._http.get(this.systemUrl + '?act=sendMail&InventoryGroupBy=' + this.WCSettings[0]["GroupInventoryBy"].replace(/,/g, '_') + '&HomeLocation=' + HomeLocation + '&IDOneLable=' + this.WCSettings[0]["IDOneLable"] + '&IDTwoLable=' + this.WCSettings[0]["IDTwoLable"] + '&IDThreeLable=' + this.WCSettings[0]["IDThreeLable"] + '&SerialPrefixLable=' + this.CompanyInfo[0]["SerialPrefixLable"] + '&CompanyTitle=' + this.CompanyInfo[0]["CompanyTitle"] + '&Address1=' + this.CompanyInfo[0]["Address1"] + '&Address2=' + this.CompanyInfo[0]["Address2"] + '&City=' + this.CompanyInfo[0]["City"] + '&State=' + this.CompanyInfo[0]["State"] + '&Zip=' + this.CompanyInfo[0]["Zip"] + '&Phone1=' + this.CompanyInfo[0]["Phone1"] + '&Fax=' + this.CompanyInfo[0]["Fax"] + '&TrimmedUserID=' + this.TrimmedUserID + '&EmailID=' + EmailID + '&Message=' + Message+ '&LocIDs='+LocIDs , options)
+                                            .map(function (res) { return res.json(); })
+                                            .subscribe(function (data) { return _this.MailData = data; }, function (err) { return _this.error(); }, function () { return _this.goToHome(); });
+                                    }
+                                    else {
+                                        alert("Please add atleast one material to the collection to send an email.");
+                                        document.getElementById('SendingMail').setAttribute("style", "display: none;");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                CollectionComponent.prototype.error = function () {
+                    // alert("Some thing went wrong, Email was not sent!");
+                    alert("The email was not sent. Please contact us for assistance.");
+                    document.getElementById('SendingMail').setAttribute("style", "display: none;");
+                };
+                CollectionComponent = __decorate([
+                    core_1.Component({
+                        selector: 'Collection',
+                        templateUrl: collectionHtmlPage
+                        //templateUrl: './app/Collection/collection.html'
+                    }), 
+                    __metadata('design:paramtypes', [http_1.Http, router_1.Router, core_1.ElementRef])
+                ], CollectionComponent);
+                return CollectionComponent;
+            }());
+            exports_1("CollectionComponent", CollectionComponent);
+        }
+    }
+});
+//# sourceMappingURL=collection.component.js.map

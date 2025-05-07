@@ -18,6 +18,9 @@
         .clearfix {
             clear: both;
         }
+        body{
+            background-color: #f4f4f4;
+        }
     </style>
 </head>
 <body>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnmenu").click(function () {
+                if ($(this).hasClass("open")) {
+                    $(this).removeClass("open");
+                    $("#menu").removeClass("open");
+                } else {
+                    $(this).addClass("open");
+                    $("#menu").addClass("open");
+                }
+            });
+    
+            $("#sidebar .btn_filters").click(function () {
+                if ($(this).hasClass("open")) {
+                    $("#sidebar .filters").slideUp();
+                    $(this).removeClass("open");
+                    $(this).html("OPEN FILTER MATERIAL");
+                } else {
+                    $("#sidebar .filters").slideDown();
+                    $(this).addClass("open");
+                    $(this).html("CLOSE FILTER MATERIAL");
+                }
+            });
+        });
+    </script>
+    
+</head>
+<style>
+ *, ::after, ::before {
+    box-sizing: border-box;
+}   
+@font-face {
+    font-family:'Cinzel' ;
+    src: url(https://fonts.gstatic.com/s/cinzel/v23/8vIJ7ww63mVu7gt79mT7.woff2);
+}
+figcaption, menu, article, aside, details, figure, footer, header, main, nav, section, summary {
+    display: block;
+}
+#masthead {
+    z-index: 1040;
+}
+.overflow-hidden {
+    overflow: hidden !important;
+}
+.position-fixed {
+    position: fixed !important;
+}
+.top-0 {
+    top: 0 !important;
+}
+.start-0 {
+    left: 0 !important;
+}
+.border-bottom {
+    border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+.padding-x {
+    padding-left: calc(100vw * 0.08);
+    padding-right: calc(100vw * 0.08);
+}
+
+
+.box-white {
+    background-color: var(--color-white);
+}
+
+.justify-content-between {
+    justify-content: space-between !important;
+}
+
+
+header a {
+    color: var(--bs-link-color);
+    text-decoration: underline;
+}
+header a {
+    color: var(--color-cta);
+    text-decoration: none;
+    /* cursor: none; */
+}
+.transitions, a, svg .color, #menu li, .tag-materia {
+    transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+.d-block {
+    display: block !important;
+}
+.py-3 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+.z-10 {
+    z-index: 10;
+}
+
+header img {
+    border-style: none;
+}
+header img, svg {
+    vertical-align: middle;
+}
+header .img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.transitions, a, svg .color, #menu li, .tag-materia {
+    transition: all 500ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+}
+.flex-column {
+    flex-direction: column !important;
+}
+@media (min-width: 992px) {
+    .flex-lg-row {
+        flex-direction: row !important;
+    }
+}
+
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.align-items-center {
+    align-items: center !important;
+}
+
+
+.d-flex {
+    display: flex !important;
+}
+
+.transitions-easeInQuart {
+    transition: all 500ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+}
+
+.fs-5 {
+    font-size: 1.25rem !important;
+}
+.font-b, .font-title, h1, h2, h3, h4, h5, h6 {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+#menu ul {
+    margin: 8px -8px;
+}
+#menu li a {
+    margin: 0 8px;
+}
+
+@media (min-width: 992px) {
+    .ms-lg-3 {
+        margin-left: 1rem !important;
+    }
+}
+.d-inline-block {
+    display: inline-block !important;
+}
+
+@media (min-width: 992px) {
+    .d-lg-none {
+        display: none !important;
+    }
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+
+#btnmenu {
+    width: 46px;
+    height: 46px;
+    position: relative;
+    cursor: pointer;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+    cursor: none;
+}
+#btnmenu * {
+    -webkit-transition: all 0.2s cubic-bezier(0.615, 0.19, 0.305, 0.91) 0s;
+    -moz-transition: all 0.2s cubic-bezier(0.615, 0.19, 0.305, 0.91) 0s;
+    -ms-transition: all 0.2s cubic-bezier(0.615, 0.19, 0.305, 0.91) 0s;
+    -o-transition: all 0.2s cubic-bezier(0.615, 0.19, 0.305, 0.91) 0s;
+    transition: all 0.2s cubic-bezier(0.615, 0.19, 0.305, 0.91) 0s;
+}
+#btnmenu .line {
+    position: absolute;
+    left: 12px;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-white);
+}
+
+
+
+
+
+#btnmenu .line.up {
+    top: 16px;
+}
+#btnmenu .line.md {
+    top: 50%;
+    margin-top: -1px;
+}
+#btnmenu .line.dw {
+    bottom: 16px;
+    width: 16px;
+}
+header .nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: var(--bs-link-color);
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: #6c757d;
+    display: flex
+;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+#menu .important a {
+    background-color: #cc0000;
+    color: #fff;
+    padding: 3px 19px;
+    border-radius: 10px;
+}
+
+header {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+    --color-black: #000000;
+    --color-dark: #222222;
+    --color-medium: #666666;
+    --color-light: #eeeeee;
+    --color-cta: #999999;
+    --color-white: #ffffff;
+    --sidebar: 240px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    /* cursor: none; */
+}
+.fs-5 {
+    font-size: 1.25rem !important;
+}
+
+.font-b, .font-title, h1, h2, h3, h4, h5, h6 {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+@media(max-width: 991px) {
+    #menu ul {
+        display: block !important;
+        text-align: center;
+    }
+}
+
+@media(max-width: 991px) {
+    #menu {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 100%;
+        left: 0;
+        background: var(--color-light);
+        padding: 80px 20px;
+    }
+}
+
+@media(max-width: 767px){
+    #masthead .logo img {
+        width: 120px;
+    }
+}
+
+@media(max-width: 991px){
+    #menu li a {
+        margin: 5px 10px;
+        display: inline-block;
+    }
+}
+
+@media(max-width: 991px) {
+    #menu.open {
+        top: 0;
+    }
+}
+header {
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+#btnmenu.open .line.up {
+    opacity: 0;
+}
+#btnmenu .line.up {
+    top: 16px;
+}
+#btnmenu.open .line.md.a {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transition: rotate(45deg);
+    -ms-transition: rotate(45deg);
+    -o-transition: rotate(45deg);
+}
+#btnmenu .line.md {
+    top: 50%;
+    margin-top: -1px;
+}
+#btnmenu.open .line.dw {
+    opacity: 0;
+}
+.animax.off .animate.scale{
+	opacity: 0;
+	transform: scale(0.6);
+	-webkit-transform: scale(0.6);
+	-moz-transition: scale(0.6);
+	-ms-transition: scale(0.6);
+	-o-transition: scale(0.6);
+}
+
+
+#btnmenu.open .line.md.b{
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-moz-transition: rotate(-45deg);
+	-ms-transition: rotate(-45deg);
+	-o-transition: rotate(-45deg);
+}
+a:hover {
+    color: var(--color-black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<body>
+    <header id="masthead" class="position-fixed w-100 top-0 start-0 box-white border-bottom padding-x overflow-hidden">
+        <div class="d-flex justify-content-between align-items-center">
+            <a class="logo d-block py-3 z-10" href="https://monch.it/demo/galleria">
+                <img src="https://monch.it/demo/galleria/assets/img/logo.svg" class="img-fluid transitions" width="180" height="" title="">
+            </a>
+            <div class="d-flex align-items-center">
+                <div id="menu" class="transitions-easeInQuart d-flex align-items-center justify-content-center flex-column flex-lg-row">
+                    <div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav d-flex align-items-center font-b fs-5"><li id="menu-item-10136" class="menu-item menu-item-type-post_type_archive menu-item-object-news menu-item-10136"><a href="https://monch.it/demo/galleria/news/">Blog</a></li>
+<li id="menu-item-10215" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-10141 current_page_item menu-item-10215"><a href="https://monch.it/demo/galleria/company/" aria-current="page">Company</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="https://monch.it/demo/galleria/contact/">Contact</a></li>
+<li id="menu-item-10135" class="important menu-item menu-item-type-post_type_archive menu-item-object-inventory menu-item-10135"><a href="https://monch.it/demo/galleria/inventory/">Live Inventory</a></li>
+</ul></div>							<div class="social ms-lg-3">
+                        <a class="d-inline-block" target="_blank" href="https://www.instagram.com/galleria_of_stone/">
+                            <img width="32" height="32" src="https://monch.it/demo/galleria/assets/img/social/instagram.svg">
+                        </a>
+                        <a class="d-inline-block" target="_blank" href="https://www.linkedin.com/company/galleria_of-_stone/?viewAsMember=true">
+                            <img width="32" height="32" src="https://monch.it/demo/galleria/assets/img/social/linkedin.svg">
+                        </a>
+                        <a class="d-inline-block" target="_blank" href="https://www.tiktok.com/@galleria.of.stone?_t=ZP-8vWxzzpi7ry&amp;_r=1">
+                            <img width="32" height="32" src="https://monch.it/demo/galleria/assets/img/social/tiktok.svg">
+                        </a>
+                        <a class="d-inline-block" target="_blank" href="https://www.facebook.com/GalleriaOfStone/">
+                            <img width="32" height="32" src="https://monch.it/demo/galleria/assets/img/social/facebook.svg">
+                        </a>
+                    </div>
+                </div>
+                <div id="btnmenu" class="cursor d-lg-none">
+                    <div class="line up"></div>
+                    <div class="line md a"></div>
+                    <div class="line md b"></div>
+                    <div class="line dw"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</body>
+
+</html>
